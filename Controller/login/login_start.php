@@ -43,10 +43,10 @@ if(isset($_SESSION["user"])){
         <li class='offset-1' style='list-style: none;'><a href='/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php'><input type='button' value='Cerrar sesíon' class='btn btn-danger'></a></li>
     </ul>
 </nav></div>";
-//Mostrar las opciones de tramite header1 (nuevo expte, gestionar)
-require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header1_proceedings.php");
 //Mostrar las opciones de tramite header2 (buscar exp, etc)
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header2_proceedings.php");
+//Mostrar las opciones de tramite header1 (nuevo expte, gestionar)
+require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header1_proceedings.php");
 //Sino existe una sesion iniciada incorpora el login s, que trae la parte grafica del login... y el archov header2_proceedings que contiene la parte visual de buscar expedientes...
 }else{
     require_once($_SERVER['DOCUMENT_ROOT'])."/SISTEMA EXPEDIENTES/View/login/login.php";

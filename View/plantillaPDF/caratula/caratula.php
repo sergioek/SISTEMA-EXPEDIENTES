@@ -195,10 +195,43 @@ margin-left:5%;">
    height: 10px;
    background-color:white;
    padding:10px;">'.$name_petitioner.'</td>
-</tr>  
+</tr> 
+
 </table>
 
+<table style="margin-left:5%; margin-top:15%;">
 
+<tr>
+
+   <td>
+   <p>___________________________</p>
+   </td>
+
+   <td style="padding-left:200px;">
+   <p >____________________________</p>
+   </td>
+
+
+</tr>
+
+
+<tr>
+   <td>
+   <h3>Firma del operador</h3> 
+
+   </td>
+
+   <td style="padding-left:200px;">
+   <h3>Firma del solicitante</h3> 
+
+   </td>
+
+</tr>
+
+
+
+
+</table>
 <body>';
 
 ?>
