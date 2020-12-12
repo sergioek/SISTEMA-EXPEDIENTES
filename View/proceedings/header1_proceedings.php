@@ -17,8 +17,8 @@
     </section>
 
     <section class="bg-dark col-lg-6">
-         <a href=""><article>
-        <label for=""class=" display-5 text-white font-weight-bold offset-lg-4 mt-4 font-italic">GESTIONAR EXPEDIENTE</label>
+         <a href="/SISTEMA EXPEDIENTES/View/proceedings/manage_proceedings.php" target="blank"><article>
+            <label for=""class=" display-5 text-white font-weight-bold offset-lg-4 mt-4 font-italic">GESTIONAR EXPEDIENTE</label>
            
             <img src="/SISTEMA EXPEDIENTES/View/images/gestion_tramite.png" alt="" width="150" height="150"  class="offset-lg-4">
             

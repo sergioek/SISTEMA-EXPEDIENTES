@@ -29,6 +29,9 @@ if(isset($_POST["enter"])){
 //Incorpora el login 
 
 //Comprobar si existe una sesion iniciada,si la existe se mostrara el usuario y el boton cerrar sesion.
+
+error_reporting(E_ALL ^ E_NOTICE); //matando el warning que aparecer por nuevamente aplicar un session start
+session_start();
 if(isset($_SESSION["user"])){
     //Guardar en una variable la sesion
     $usuario=$_SESSION["user"];

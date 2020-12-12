@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2020 a las 19:47:56
+-- Tiempo de generación: 11-12-2020 a las 22:02:24
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -32,13 +32,6 @@ CREATE TABLE `administrador` (
   `CONTRASEÑA` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `administrador`
---
-
-INSERT INTO `administrador` (`USUARIO`, `CONTRASEÑA`) VALUES
-(37313478, '$2y$12$v1sOoRyR.SkqgBgxtuUt7O6cZybxejDd8nqCZnJQH9k6GuFjK6zeW');
-
 -- --------------------------------------------------------
 
 --
@@ -53,14 +46,6 @@ CREATE TABLE `area` (
   `TELEFONO` bigint(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `area`
---
-
-INSERT INTO `area` (`CODIGO`, `NOMBRE`, `DESCRIPCION`, `JEFE`, `TELEFONO`) VALUES
-(2, 'EJECUTIVO', 'NADA', 'SERGIO', 3855307491),
-(1, 'TESORERIA', 'nada', 'SERGIO', 4911351);
-
 -- --------------------------------------------------------
 
 --
@@ -68,15 +53,15 @@ INSERT INTO `area` (`CODIGO`, `NOMBRE`, `DESCRIPCION`, `JEFE`, `TELEFONO`) VALUE
 --
 
 CREATE TABLE `estado_expedientes` (
+  `FECHA_HORA` datetime NOT NULL,
   `NUMERO_ID` int(11) NOT NULL,
-  `FECHA` date NOT NULL,
   `AREA` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `OPERADOR` int(12) NOT NULL,
-  `MOTIVO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `MOTIVO` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
   `FOLIOS` int(3) NOT NULL,
   `ESTADO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `CON_PASE_A` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `MOTIVO_PASE` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+  `MOTIVO_PASE` varchar(150) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -98,13 +83,6 @@ CREATE TABLE `expedientes` (
   `DNI_OPERADOR` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `expedientes`
---
-
-INSERT INTO `expedientes` (`NUMERO`, `AÑO`, `FECHA`, `DNI_SOLICITANTE`, `TRAMITE`, `ESTADO`, `FOLIOS`, `DOCUMENTACION`, `AREA`, `DNI_OPERADOR`) VALUES
-(11, 2020, '2020-11-27', 12053901, 'a', 'INICIO DE TRÁMITE', -8, 'aaa', 'EJECUTIVO', 37313478);
-
 -- --------------------------------------------------------
 
 --
@@ -123,13 +101,6 @@ CREATE TABLE `operadores` (
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `operadores`
---
-
-INSERT INTO `operadores` (`NOMBRES`, `DNI`, `FECHANACIMIENTO`, `DOMICILIO`, `CONTRASEÑA`, `AREA`, `CARGO`, `TELEFONO`, `CORREO`) VALUES
-('SERGIO KHAIRALLAH', 37313478, '1993-03-10', 'AV JESUS FERNANDEZ', '$2y$12$YpOJtrh2HJbtxHBVIi.kzOWoLkpFFd8/jSYU5PcvXpH3OP95mCqgy', 'EJECUTIVO', 'jefe', 3855307491, 'khairallahsergio4@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -144,13 +115,6 @@ CREATE TABLE `solicitante` (
   `TELEFONO` bigint(12) NOT NULL,
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `solicitante`
---
-
-INSERT INTO `solicitante` (`SOLICITANTE`, `DNI`, `NACIMIENTO`, `DOMICILIO`, `TELEFONO`, `CORREO`) VALUES
-('KHAIRALLAH JORGE', 12053901, '1953-11-01', 'AV JESUS FERNANDEZ', 4911351, 'jorka@live.com');
 
 --
 -- Índices para tablas volcadas
@@ -208,13 +172,13 @@ ALTER TABLE `solicitante`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `CODIGO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CODIGO` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `expedientes`
 --
 ALTER TABLE `expedientes`
-  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

@@ -194,7 +194,7 @@ margin-left:5%;">
    text-align:left;
    height: 10px;
    background-color:white;
-   padding:10px;">'.$name_petitioner.'</td>
+   padding:10px;">'.$name_user.'</td>
 </tr> 
 
 </table>
