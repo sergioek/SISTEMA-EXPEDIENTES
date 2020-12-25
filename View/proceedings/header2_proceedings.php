@@ -15,12 +15,12 @@
         </a>
     </section>
 
-    <section class="bg-danger col-lg-4">
-        <form action="" class="form-column">
+    <section class="bg-light col-lg-4">
+        <form action="/SISTEMA EXPEDIENTES/Controller/proceedings/report/search_report.php" class="form-column" method="get" target="blank">
             <table class="mt-lg-2 offset-lg-2">
                 <tr>
                     <td class="">
-                        <label for="" class="display-5 text-white font-weight-bold">BUSQUEDA DE EXPEDIENTES:</label>
+                        <label for="" class="display-5 text-dark font-weight-bold">BUSQUEDA DE EXPEDIENTES:</label>
 
                         <img src="/SISTEMA EXPEDIENTES/View/images/busqueda-expedientes.png" alt="" width="100" height="80">
 
