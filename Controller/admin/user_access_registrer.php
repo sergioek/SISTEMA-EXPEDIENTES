@@ -15,7 +15,7 @@ if(isset($_POST["access"])){
     if($CONTADOR>0){
         session_start();
         $_SESSION["registrer"]=$_POST["user"];
-        header("Location:/SISTEMA EXPEDIENTES/View/user/new_user.php");
+        header("Location:/SISTEMA EXPEDIENTES/View/admin/menu.php");
 }else{
     echo"<script>alert('El usuario y la contraseña son incorrectos');</script>";
 }

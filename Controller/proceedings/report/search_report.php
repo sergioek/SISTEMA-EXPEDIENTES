@@ -31,10 +31,12 @@ class Validation{
                 try{
                 require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/report/search_report.php");
                 //Si se encontro un reporte en search report del model se incorpora la parte grafica para mostrar esos datos
-                    if($numeros_expediente==1){
+                    if(isset($registro)){
                         require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/report/report.php");
                     }else{
-                        echo'<script language="javascript">alert("El numero y año de expedientes no se encuentran en la base de datos.");</script>';
+                      
+                        echo'<script language="javascript">alert("El numero y año de expedientes no se encuentran en la base de datos.");</script>';  
+                        require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/script/close.html");
                     }
                 }catch(Exception $e){
                     echo'<script language="javascript">alert("Error al buscar el expediente");</script>';}

@@ -8,9 +8,9 @@
     <section class="bg-dark col-lg-4">
         <a href="">
             <article class="container offset-lg-2">
-                <label for=""class=" display-5 text-white font-weight-bold offset-lg-2 mt-4">REQUISITOS TRÁMITES</label>
+                <label for=""class=" display-5 text-white font-weight-bold offset-lg-2 mt-4">REQUISITOS PARA TRÁMITES</label>
             
-                <img src="/SISTEMA EXPEDIENTES/View/images/requisitos_tramites.png" alt="" width="200" height="150">
+                <img class="offset-lg-3" src="/SISTEMA EXPEDIENTES/View/images/requisito_tramite.png" alt="" width="160" height="150">
             </article>
         </a>
     </section>
@@ -47,7 +47,7 @@
          <a href=""><article>
         <label for=""class=" display-5 text-white font-weight-bold offset-lg-3 mt-4">AYUDA Y ASISTENCIA TÉCNICA</label>
            
-            <img src="/SISTEMA EXPEDIENTES/View/images/ayuda-asistencia.png" alt="" width="300" height="150">
+            <img src="/SISTEMA EXPEDIENTES/View/images/ayuda-asistencia.png" alt="" width="300" height="150" class="offset-lg-2">
             
         </article></a>
 

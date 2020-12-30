@@ -76,7 +76,7 @@ if (isset($_POST["submit"])) {
     </ul>
 
     <ul class="container row mt-lg-2">
-        <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/index.php"><input type="button" value="<-INICIO" class="btn btn-info"></a></li>
+        <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/View/admin/menu.php"><input type="button" value="<-INICIO" class="btn btn-info"></a></li>
 
         <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php"><input type="button" value="Cerrar Sesíon" class="btn btn-danger"></a></li>
     </ul>
@@ -96,7 +96,7 @@ if (isset($_POST["submit"])) {
         <table class="table container col-lg-8 offset-lg-3">
 
             <tr>
-                <td><input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z ]{8,50}" title="Use mayusculas hasta 50 caracteres" placeholder="Ingrese sus nombres y apellidos completos en MAYUSCULAS" required></td>
+                <td><input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z-Ñ ]{8,50}" title="Use mayusculas hasta 50 caracteres" placeholder="Ingrese sus nombres y apellidos completos en MAYUSCULAS" required></td>
             </tr>
 
 

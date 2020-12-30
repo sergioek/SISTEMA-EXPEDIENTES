@@ -75,7 +75,7 @@
         <table class="table container col-lg-8 offset-lg-3">
 
             <tr>
-                <td><input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z ]{8,50}" title="Use mayusculas hasta 50 caracteres" placeholder="Ingrese sus nombres y apellidos completos en MAYUSCULAS" required value="<?php echo $name;?>"></td>
+                <td><input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z-Ñ ]{8,50}" title="Use mayusculas hasta 50 caracteres" placeholder="Ingrese sus nombres y apellidos completos en MAYUSCULAS" required value="<?php echo $name;?>"></td>
             </tr>
 
             <td class="display-6 text-muted">Seleccione fecha de nacimiento:</td>

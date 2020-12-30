@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2020 a las 22:02:24
+-- Tiempo de generación: 29-12-2020 a las 02:10:45
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -32,6 +32,13 @@ CREATE TABLE `administrador` (
   `CONTRASEÑA` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`USUARIO`, `CONTRASEÑA`) VALUES
+(37313478, '$2y$12$v1sOoRyR.SkqgBgxtuUt7O6cZybxejDd8nqCZnJQH9k6GuFjK6zeW');
+
 -- --------------------------------------------------------
 
 --
@@ -43,7 +50,8 @@ CREATE TABLE `area` (
   `NOMBRE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `DESCRIPCION` text COLLATE utf8_spanish_ci NOT NULL,
   `JEFE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `TELEFONO` bigint(12) NOT NULL
+  `TELEFONO` bigint(12) NOT NULL,
+  `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------

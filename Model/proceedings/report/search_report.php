@@ -26,7 +26,10 @@ if($numeros_expediente==1){
     $resultado_gestion=$conexion->prepare($consulta_gestion_expediente);
     $resultado_gestion->execute(array($number));
     $registro=$resultado_gestion->fetchAll(PDO::FETCH_OBJ);
+    //Retorna el registro para el controller
+    return $registro;
 }
+    
 $resultado->closeCursor();
 
 }catch(Exception $e){
