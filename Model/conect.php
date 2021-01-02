@@ -2,8 +2,7 @@
 
 //Definiendo la clase conexion y la funcion conect
 class Conexion{ 
-    private $db;
-    public function Conect(){
+    static function Conect(){
         try{
             $conexion= new PDO('mysql:host=localhost;dbname=expedientes','sergioek','kefotopc01');
             $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -16,13 +15,8 @@ class Conexion{
     }
     //Retorna la conexion para ser usada en las consultas a de bd
     return $conexion;
-    
-
 }
 
 }
-
-
-
 ?>
 

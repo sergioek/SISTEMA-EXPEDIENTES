@@ -158,7 +158,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_s
         </table>
 
     </form>
-<!--Escript para hacer scroll hasta cierta parte del formulario--->
+<!--script para hacer scroll hasta cierta parte del formulario--->
 <script>
     window.scroll(0,1400)
 </script>

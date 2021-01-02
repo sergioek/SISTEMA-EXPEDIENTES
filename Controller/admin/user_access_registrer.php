@@ -9,7 +9,7 @@ require_once($_SERVER['DOCUMENT_ROOT'])."/SISTEMA EXPEDIENTES/View/admin/access.
 
 //El usuario al pulsar iniciar sesion en el formulario login, se llamara al archivo search login para hacer la consulta en la base de datos para encontrar usuario
 if(isset($_POST["access"])){
-    require_once($_SERVER['DOCUMENT_ROOT'])."/SISTEMA EXPEDIENTES/Model/admin/user_access.php";
+    require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/admin/user_access.php");
 //Si se encontro un usuario la variable contrador sera mayor a cero.. 
 
     if($CONTADOR>0){

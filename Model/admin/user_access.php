@@ -8,11 +8,7 @@ try{
 	//Elimina los carcateres especiales para evitar inyeccion sql
     $usuario=htmlentities(addslashes($_POST["user"]));
     $password=htmlentities(addslashes($_POST["password_access"]));
-
- 
-
     $sql="SELECT *FROM ADMINISTRADOR WHERE USUARIO=?";
-   
     $resultado=$conexion->prepare($sql);
     $resultado->bindParam(1,$usuario,PDO::PARAM_INT);
 
