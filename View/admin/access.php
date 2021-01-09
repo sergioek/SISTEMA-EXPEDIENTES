@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Sergio Khairallah">
     <meta name="keywords" content="Municipalidad de Fernandez,Registro de usuarios,Sistema de Expedientes">
-    <title>ADMINISTRACION DE USUARIOS- Sistema de Expedientes Municipales</title>
+    <title>ADMINISTRACION DE AREAS Y PERMISOS DE USUARIOS- Sistema de Expedientes Municipales</title>
     <!--Incorporando Bootstrap-->
     <link rel="stylesheet" href="/SISTEMA EXPEDIENTES/View/styles/bootstrap/css/bootstrap.min.css">
     <!--Incorporando un stylo css-->
@@ -35,7 +35,7 @@
     
     <table class="container-fluid bg-info">
         <tr>
-            <td><h3 class="display-5 text-white offset-lg-5">ADMINISTRACÍON</h3></td>
+            <td><h5 class="display-5 text-white offset-lg-5">ADMIN. ÁREAS Y USUARIOS</h5></td>
         </tr>
 
 

@@ -21,10 +21,6 @@
     }else{
         //Un archivo que trae los datos del usuario que inicio sesion y los incorpora para poder llenar los input
         require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/Model/user/select_exist_user.php");
-      
-        //Incorpora un archivo sql para obtener las areas y mostrarlas dentro del archivo en la lista desplegable
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_search_area.php');
-
     }
     //Si el usuario pulsa udpate... llama para hacer las comprobaciones
     if(isset($_POST["update"])){
@@ -90,36 +86,42 @@
             </tr>
 
             <tr>
-                <td><input class="form-control col-lg-8" type="text" name="home" id="home" maxlength="50" placeholder="Su domicilio actual" required value="<?php echo $home;?>"></td>
+                <td><input class="form-control col-lg-8" type="text" name="home" id="home" maxlength="50" placeholder="Su domicilio actual" title="Su domicilio" required value="<?php echo $home;?>"></td>
             </tr>
 
             <tr>
-                <td><input class="form-control col-lg-8" type="tel" name="telephone" id="telephone" pattern="[0-9]{10}" placeholder="Su telefono en 10 digitos" required value="<?php echo $telephone;?>"></td>
+                <td><input class="form-control col-lg-8" type="tel" name="telephone" id="telephone" pattern="[0-9]{10}" placeholder="Su telefono en 10 digitos" title="Su número de tel." required value="<?php echo $telephone;?>"></td>
             </tr>
 
             <tr>
-                <td><input class="form-control col-lg-8" type="email" name="email" id="email" placeholder="Su correo electronico" required value="<?php echo $email;?>"></td>
+                <td><input class="form-control col-lg-8" type="email" name="email" id="email" placeholder="Su correo electronico" required title="Su correo electrónico" value="<?php echo $email;?>"></td>
             </tr>
 
             <tr>
                 <td>
-                    <select class="form-control col-lg-8" name="area" id="area">
-                        <!--Bucle foreach para insertar las areas de la bd obtenida a partir de new user search area  no usar value-->
-                        <?php
-                        foreach ($registro as $areas) : ?>
-                            <option name="area=<?php echo $areas->NOMBRE; ?>"><?php echo $areas->NOMBRE; ?></option>
-                        <?php
-                        endforeach;
-                        ?>
-
+                    <select class="form-control col-lg-8" name="area" id="area" title="Área a la cual perteneces">
+                        <option name="area=<?php echo $area;?>"><?php echo $area;?></option>
                     </select required>
                 </td>
             </tr>
 
-
+            <tr>
+                <td><input class="form-control col-lg-8" type="text" name="charge" id="charge" maxlength="50" placeholder="Ingrese su cargo" required title="Cargo que desempeñas" value="<?php echo $charge;?>"></td>
+            </tr>
 
             <tr>
-                <td><input class="form-control col-lg-8" type="text" name="charge" id="charge" maxlength="50" placeholder="Ingrese su cargo" required value="<?php echo $charge;?>"></td>
+                <td>
+                    <select name="rol" id="rol" class="form-control col-lg-8" title="Elegir rol de usuario a registrar">
+                        <?php 
+                        //si el usuario encontrado tiene el rol de administrador de area, se mostrara para que pueda mantener ese rol en el caso de hacer un update de sus datos
+                        if($rol=="ADMINISTRADOR DE ÁREA"){
+                            echo'<option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño">ADMINISTRADOR DE ÁREA</option>';
+                        }else{
+                            echo '<option name="rol" title="Usuario sin provilegios de administracíon y control">OPERARIO DE ÁREA</option>';
+                        }
+                        ?>
+                    </select required>
+                </td>
             </tr>
 
             <tr>

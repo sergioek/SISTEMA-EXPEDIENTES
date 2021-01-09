@@ -49,6 +49,11 @@
                 <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="300" required style="resize: none;"></textarea></td>
             </tr>
 
+            <tr>
+                <td class="col-lg-2 text-dark"><label for="">Declaro que la documentacíon esta completa:</label>
+                <input type="checkbox" name="full_documentation" id="full_documentation" class=".form-check" required   title="Indique si la documentacíon esta completa, para poder iniciar un expediente"></td>
+            </tr>
+
             <tr class="container row">
                 <td class="col-lg-4 text-danger">
                     <label for="">*Una vez completados los campos, presione:</label>

@@ -6,7 +6,7 @@ $conexion=Conexion::Conect();
 $password=htmlentities(addslashes ($_POST["password"]));
 $password_encrypt=password_hash($password,PASSWORD_DEFAULT,array("cost"=>12));
     
-$consulta="INSERT INTO OPERADORES (NOMBRES,DNI,FECHANACIMIENTO,DOMICILIO,CONTRASEÑA,AREA,CARGO,TELEFONO,CORREO) VALUES (?,?,?,?,?,?,?,?,?)";
+$consulta="INSERT INTO OPERADORES (NOMBRES,DNI,FECHANACIMIENTO,DOMICILIO,CONTRASEÑA,AREA,CARGO,ROL,TELEFONO,CORREO) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 
 $resultado=$conexion->prepare($consulta);
@@ -17,8 +17,9 @@ $resultado->bindParam(4,$home,PDO::PARAM_STR);
 $resultado->bindParam(5,$password_encrypt,PDO::PARAM_STR);
 $resultado->bindParam(6,$area,PDO::PARAM_STR);
 $resultado->bindParam(7,$charge,PDO::PARAM_STR);
-$resultado->bindParam(8,$telephone,PDO::PARAM_INT);
-$resultado->bindParam(9,$email,PDO::PARAM_STR);
+$resultado->bindParam(8,$rol,PDO::PARAM_STR);
+$resultado->bindParam(9,$telephone,PDO::PARAM_INT);
+$resultado->bindParam(10,$email,PDO::PARAM_STR);
 $resultado->execute();
 $resultado->closeCursor();
 

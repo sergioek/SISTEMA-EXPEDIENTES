@@ -197,6 +197,11 @@ margin-left:5%;">
    padding:10px;">'.$name_user.'</td>
 </tr> 
 
+<tr>
+   <td class="col-lg-2 text-dark"><label for="">Declaro que la documentacíon esta completa para iniciar el expediente:</label>
+   <input type="checkbox" name="full_documentation" id="full_documentation" class=".form-check" required checked="checked"></td>
+</tr>
+
 </table>
 
 <table style="margin-left:5%; margin-top:15%;">

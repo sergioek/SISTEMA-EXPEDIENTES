@@ -20,6 +20,7 @@ while($usuario=$resultado->fetch(PDO::FETCH_ASSOC)){
     $password_actual=$usuario["CONTRASEÑA"];
     $area=$usuario["AREA"];
     $charge=$usuario["CARGO"];
+    $rol=$usuario["ROL"];
     $telephone=$usuario["TELEFONO"];
     $email=$usuario["CORREO"];
 

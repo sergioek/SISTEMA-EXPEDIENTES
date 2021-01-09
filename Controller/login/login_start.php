@@ -13,22 +13,22 @@ if(isset($_POST["enter"])){
             session_start();
             $_SESSION["user"]=$user;
             $_SESSION["dni"]=$dni;
-            $_SESSION["area"]=$area;      
+            $_SESSION["area"]=$area;   
+            $_SESSION["rol"]=$rol;      
+   
         }else{   
-            //Sino desea recordar la cuenta se crean el inicio normal de sesion almacenando el usuario y el dni en $user y $dni y $area
+            //Sino desea recordar la cuenta se crean el inicio normal de sesion almacenando el usuario y el dni en $user y $dni y $area y $rol
             session_start();
             $_SESSION["user"]=$user;
             $_SESSION["dni"]=$dni;
             $_SESSION["area"]=$area; 
+            $_SESSION["rol"]=$rol;
         }
 //mensaje si da error la consulta o no se encuentra un usuario
     }else{
         echo "<script>alert('Usuario no encontrado')</script>";
     }
 }
-//Incorpora el login 
-
-//Comprobar si existe una sesion iniciada,si la existe se mostrara el usuario y el boton cerrar sesion.
 
 error_reporting(E_ALL ^ E_NOTICE); //matando el warning que aparecer por nuevamente aplicar un session start
 session_start();
@@ -45,13 +45,28 @@ if(isset($_SESSION["user"])){
     <ul class='container row mt-lg-0'>
         <li class='offset-1' style='list-style: none;'><a href='/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php'><input type='button' value='Cerrar sesíon' class='btn btn-danger'></a></li>
     </ul>
-</nav></div>";
+    </nav></div>";
 //Mostrar las opciones de tramite header2 (buscar exp, etc)
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header2_proceedings.php");
 //Mostrar las opciones de tramite header1 (nuevo expte, gestionar)
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header1_proceedings.php");
-//Sino existe una sesion iniciada incorpora el login s, que trae la parte grafica del login... y el archov header2_proceedings que contiene la parte visual de buscar expedientes...
+    //Si el usuario que inicio sesion es administrador, se incorporan otras funciones
+    if($_SESSION["rol"]=="ADMINISTRADOR DE ÁREA"){
+        echo 
+        '<section class="bg-success col-lg-6">
+            <a href="/SISTEMA EXPEDIENTES/View/user/new_user_operator.php" target="blank"><article>
+                <label for=""class=" display-4 text-white font-weight-bold offset-lg-1 mt-4 font-italic">USUARIOS DEL SISTEMA</label>
+       
+                <img src="/SISTEMA EXPEDIENTES/View/images/registro de usuarios.png" alt="" width="150" height="150"  class="offset-lg-5">
+        
+            </article></a>
+
+        </section>';
+
+    }
+
 }else{
+    //Sino existe una sesion iniciada incorpora el login s, que trae la parte grafica del login... y el archov header2_proceedings que contiene la parte visual de buscar expedientes...
     require_once($_SERVER['DOCUMENT_ROOT'])."/SISTEMA EXPEDIENTES/View/login/login.php";
     require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header2_proceedings.php");
     

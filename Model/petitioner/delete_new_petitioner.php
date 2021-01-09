@@ -23,6 +23,4 @@ if($registro==1){
 //Cerrando la conexion
 $resultado->closeCursor();
 
-
-
 ?>

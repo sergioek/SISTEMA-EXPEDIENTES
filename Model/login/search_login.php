@@ -24,18 +24,17 @@ try{
         //cOMPROBAR SI LA CONSTRASEÑA COINICIDE CON LA CONTRASEÑA ENCRIPTADA
         $resultado->closeCursor();
         $registro["CONTRASEÑA"];
-        //Si las contraseñas coinciden es decir el hash con la introducida por el usuario se incrementa la variable contrador y se almacenan los nombres y dni en dos variables (user,dni)
+        //Si las contraseñas coinciden es decir el hash con la introducida por el usuario se incrementa la variable contrador y se almacenan los nombres y dni en dos variables (user,dni,AREA Y ROL)
         if(password_verify($password,$registro["CONTRASEÑA"])){
             $CONTADOR++;
             $user=$registro["NOMBRES"];
             $dni=$registro["DNI"];
             $area=$registro["AREA"];
+            $rol=$registro["ROL"];
         }
 
     }
-
-   
-                  
+            
 }catch(Exception $e){
     //Matando el error
     die('Error:' . $e->GetMessage());

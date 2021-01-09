@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Sergio Khairallah">
     <meta name="keywords" content="Municipalidad de Fernandez,Registro de usuarios,Sistema de Expedientes">
-    <title>Registro de Usuarios - Sistema de Expedientes Municipales</title>
+    <title>Registro de Administradores del Área - Sistema de Expedientes Municipales</title>
     <!--Incorporando Bootstrap-->
     <link rel="stylesheet" href="/SISTEMA EXPEDIENTES/View/styles/bootstrap/css/bootstrap.min.css">
     <!--Incorporando un stylo css-->
     <link rel="stylesheet" href="/SISTEMA EXPEDIENTES/View/styles/new_user.css">
     <!--Incorporando un icono en la pagina-->
     <link rel="icon" href="/SISTEMA EXPEDIENTES/View/images/favicon.ico" type="image/png">
-<!-- Una seccion php para comprobar sino existe una sesion iniciada.. sino existe te redirige al index--->
+<!-- Una seccion php para comprobar sino existe una sesion iniciada desde administracion o desde iniciar sesion.. sino existe te redirige al index--->
     <?php
     session_start();
     if(!isset($_SESSION["registrer"])){
@@ -71,7 +71,7 @@ if (isset($_POST["submit"])) {
 <nav class="col-lg-3 offset-lg-9">
 
     <ul class="container row mt-lg-2">
-        <li class="offset-1" style="list-style:none;"><label class="text-success font-weight-bold">Usuario: </label><label for=""><?php echo $_SESSION["registrer"]; ?></label></li>
+        <li class="offset-1" style="list-style:none;"><label class="text-success font-weight-bold">Usuario: </label><label for=""><?php echo $_SESSION["registrer"];?></label></li>
         <!--El label trae una zona php para mostar el usuario de sesion-->
     </ul>
 
@@ -85,7 +85,7 @@ if (isset($_POST["submit"])) {
 
 <!---------------Texto--------------------------------->
     <div class="container col-lg-9 offset-lg-3">
-            <h4 class="bg-transparent display-4  text-primary mt-2 font-weight-bold">Registro de Usuarios</h4>
+            <h1 class="bg-transparent text-primary mt-2 font-weight-bold">Registro de Administradores</h1>
     </div>
 <!------------------------------------------------------->
 
@@ -129,7 +129,7 @@ if (isset($_POST["submit"])) {
 
             <tr>
                 <td>
-                    <select name="area" id="area" class="form-control col-lg-8">
+                    <select name="area" id="area" class="form-control col-lg-8" title="Seleccione el área a la cual pertenecerá el usuario a registrar">
                         <!--Bucle foreach para insertar las areas de la bd obtenida a partir de new user search area-->
                         <?php
                         foreach ($registro as $areas) :?>
@@ -146,6 +146,15 @@ if (isset($_POST["submit"])) {
 
             <tr>
                 <td><input class="form-control col-lg-8" type="text" name="charge" id="charge" maxlength="50" placeholder="Ingrese su cargo" required></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <select name="rol" id="rol" class="form-control col-lg-8" title="Elegir rol de usuario a registrar">
+                        <option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño">ADMINISTRADOR DE ÁREA</option>
+                        <option name="rol" title="Usuario sin provilegios de administracíon y control">OPERARIO DE ÁREA</option>
+                    </select required>
+                </td>
             </tr>
 
             <tr>

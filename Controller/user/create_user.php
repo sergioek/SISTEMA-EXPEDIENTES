@@ -13,6 +13,7 @@ class Validation{
             $email=$_POST["email"];
             $area=$_POST["area"];
             $charge=$_POST["charge"];
+            $rol=$_POST["rol"];
             $password=$_POST["password"];
             $password_verify=$_POST["password_verify"];
     

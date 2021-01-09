@@ -65,7 +65,7 @@ if(isset($_COOKIE["SGE-DNI"])){
 
         <tr>
             <td>
-                <a href="/SISTEMA EXPEDIENTES/Controller/admin/user_access_registrer.php" target="blank"><input type="" name="" value="Registrarse" id="" class="btn btn-danger btn-sm col-lg-2 mb-2 offset-lg-5"></a>
+                <a href="/SISTEMA EXPEDIENTES/Controller/admin/user_access_registrer.php" target="blank"><input type="" name="" value="Administracíon" id="" class="btn btn-danger btn-sm col-lg-2 mb-2 offset-lg-5"></a>
                 
             </td>
         </tr>

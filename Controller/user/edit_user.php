@@ -16,6 +16,7 @@
             $email=$_POST["email"];
             $area=$_POST["area"];
             $charge=$_POST["charge"];
+            $rol=$_POST["rol"];
             $password_nuevo=$_POST["password_nuevo"];
 
             //Iniciando comprobaciones

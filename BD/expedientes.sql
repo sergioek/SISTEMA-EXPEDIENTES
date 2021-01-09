@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-12-2020 a las 02:10:45
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.34
+-- Tiempo de generación: 10-01-2021 a las 00:13:16
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,6 +53,14 @@ CREATE TABLE `area` (
   `TELEFONO` bigint(12) NOT NULL,
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `area`
+--
+
+INSERT INTO `area` (`CODIGO`, `NOMBRE`, `DESCRIPCION`, `JEFE`, `TELEFONO`, `CORREO`) VALUES
+(1, 'DEPORTES', 'dee', 'RODOLFO VILLAFANE', 3855307491, 'nelo@gmail.com'),
+(2, 'MESA DE ENTRADAS', 'nose', 'VICTOR', 3855307491, 'quete@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -105,9 +113,18 @@ CREATE TABLE `operadores` (
   `CONTRASEÑA` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `AREA` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `CARGO` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `ROL` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `TELEFONO` bigint(12) NOT NULL,
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `operadores`
+--
+
+INSERT INTO `operadores` (`NOMBRES`, `DNI`, `FECHANACIMIENTO`, `DOMICILIO`, `CONTRASEÑA`, `AREA`, `CARGO`, `ROL`, `TELEFONO`, `CORREO`) VALUES
+('JORGE KHAIRALLAH', 12053901, '1956-01-01', 'AV JESUS FERNANDEZ', '$2y$12$Ta7luEiloeyEhxet.JR/ju/RuT54YGFNBs9LMYDfyyStG.iTbt4yO', 'MESA DE ENTRADAS', 'JEFE DE PRENSA', 'ADMINISTRADOR DE ÁREA', 3855307491, 'khairallahsergio4@gmail.com'),
+('CHACON ANTONELLA', 32909710, '1987-06-16', 'AV JESUS FERNANDEZ', '$2y$12$E7E0tjwiJoOp5NYZgwvOAOPgyZtjHrQmeDxoSpCvn4ct//Uj6/why', 'DEPORTES', 'JEFA DE PRENSA', '', 3855003403, 'chacon.antonela@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -123,6 +140,13 @@ CREATE TABLE `solicitante` (
   `TELEFONO` bigint(12) NOT NULL,
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `solicitante`
+--
+
+INSERT INTO `solicitante` (`SOLICITANTE`, `DNI`, `NACIMIENTO`, `DOMICILIO`, `TELEFONO`, `CORREO`) VALUES
+('SERGIO KHAIRALLAH', 37313478, '1993-03-10', 'AV JESUS FERNANDEZ', 3855307491, 'khairallahsergio4@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -180,13 +204,13 @@ ALTER TABLE `solicitante`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `CODIGO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CODIGO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `expedientes`
 --
 ALTER TABLE `expedientes`
-  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

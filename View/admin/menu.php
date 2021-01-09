@@ -51,7 +51,7 @@
     </ul>
 
     <ul class="container row mt-lg-2">
-        <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/index.php"><input type="button" value="<-INICIO" class="btn btn-info"></a></li>
+        <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/View/admin/menu.php"><input type="button" value="<-INICIO" class="btn btn-info"></a></li>
 
         <li class=" offset-1" style="list-style: none;"><a href="/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php"><input type="button" value="Cerrar Sesíon" class="btn btn-danger"></a></li>
     </ul>
@@ -73,7 +73,7 @@
         </section>
 
         <section class="bg-success col-lg-6">
-            <a href="/SISTEMA EXPEDIENTES/View/user/new_user.php" target="blank"><article>
+            <a href="/SISTEMA EXPEDIENTES/View/user/new_user_admin.php" target="blank"><article>
                 <label for=""class=" display-4 text-white font-weight-bold offset-lg-1 mt-4 font-italic">USUARIOS DEL SISTEMA</label>
        
                 <img src="/SISTEMA EXPEDIENTES/View/images/registro de usuarios.png" alt="" width="150" height="150"  class="offset-lg-5">
