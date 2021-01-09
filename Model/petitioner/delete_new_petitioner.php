@@ -18,7 +18,7 @@ $registro=$resultado->rowCount();
 if($registro==1){
     echo'<script language="javascript">alert("Se elimino un solicitante");</script>';
 }else{
-    echo'<script language="javascript">alert("No se pudo eliminar un solicitante. Verifique DNI");</script>';
+    echo'<script language="javascript">alert("No se pudo eliminar un solicitante, porque tiene asociados expedientes que inicio con anterioridad. Consulte al administrador de sistemas");</script>';
 }
 //Cerrando la conexion
 $resultado->closeCursor();

@@ -106,7 +106,13 @@ if (isset($_POST["submit"])) {
 
             <td class="display-6 text-muted">Seleccione fecha de nacimiento:</td>
             <tr>
-                <td><input class="form-control col-lg-8" type="date" name="date" id="date" min="1950-01-01" max="2020-01-01" placeholder="Seleccione una fecha" required></td>
+            <?php 
+            //Determinando la fecha max para asegurar que se registren mayores de edad
+            $mes=date('m');
+            $dia=date('d');
+            $fechamax=date('Y')-18 ."-"."$mes"."-"."$dia";
+            ?>
+                <td><input class="form-control col-lg-8" type="date" name="date" id="date" min="1940-01-01" max="<?php echo $fechamax;?>" placeholder="Seleccione una fecha" required></td>
             </tr>
 
             <tr>
