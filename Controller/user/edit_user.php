@@ -4,8 +4,8 @@
 //---------------------------------------------------------------------------/
 //Si el usuario pulsa el boton actualizar se hara la comprobacion si la contraseña indicada como actual por el usuario coincide con la existente en la base de datos. en el imput siguiente el usuario podra repetir la contraseña o cambiar la existente
 
-    if(isset($_POST["update"])){
-        if(password_verify($_POST["password_actual"],$password_actual)){
+        if(isset($_POST["update"])){
+            if(password_verify($_POST["password_actual"],$password_actual)){
 
             //Obteniendo valores del formulario
             $name=$_POST["name"];

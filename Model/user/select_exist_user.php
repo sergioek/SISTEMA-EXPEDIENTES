@@ -3,8 +3,12 @@ try{
 require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Model/conect.php");
 $conexion=Conexion::Conect();
 
-//Tomar el valor de usuario (DNI) por la sesion
-$dni=$_SESSION["dni"];
+//Tomar el valor de usuario (DNI) por la sesion o por dni ingrsado por usuario 
+if(isset($_SESSION["dni"])){
+    $dni=$_SESSION["dni"];
+}else{
+    $dni=$_POST["dni"];
+}
     
 $consulta="SELECT *FROM OPERADORES WHERE DNI=?";
 

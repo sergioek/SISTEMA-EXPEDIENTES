@@ -106,7 +106,7 @@
             </tr>
 
             <tr>
-                <td><input class="form-control col-lg-8" type="text" name="charge" id="charge" maxlength="50" placeholder="Ingrese su cargo" required title="Cargo que desempeñas" value="<?php echo $charge;?>"></td>
+                <td><input class="form-control col-lg-8" type="text" name="charge" id="charge" maxlength="50" placeholder="Ingrese su cargo" required readonly title="Cargo que desempeñas" value="<?php echo $charge;?>"></td>
             </tr>
 
             <tr>

@@ -52,17 +52,7 @@ require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header2
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header1_proceedings.php");
     //Si el usuario que inicio sesion es administrador, se incorporan otras funciones
     if($_SESSION["rol"]=="ADMINISTRADOR DE ÁREA"){
-        echo 
-        '<section class="bg-success col-lg-6">
-            <a href="/SISTEMA EXPEDIENTES/View/user/new_user_operator.php" target="blank"><article>
-                <label for=""class=" display-4 text-white font-weight-bold offset-lg-1 mt-4 font-italic">USUARIOS DEL SISTEMA</label>
-       
-                <img src="/SISTEMA EXPEDIENTES/View/images/registro de usuarios.png" alt="" width="150" height="150"  class="offset-lg-5">
-        
-            </article></a>
-
-        </section>';
-
+        require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header3_proceedings.php");
     }
 
 }else{
