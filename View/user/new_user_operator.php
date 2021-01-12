@@ -13,13 +13,12 @@
     <link rel="stylesheet" href="/SISTEMA EXPEDIENTES/View/styles/new_user.css">
     <!--Incorporando un icono en la pagina-->
     <link rel="icon" href="/SISTEMA EXPEDIENTES/View/images/favicon.ico" type="image/png">
-<!-- Una seccion php para comprobar sino existe una sesion iniciada desde administracion o desde iniciar sesion.. sino existe te redirige al index--->
+<!-- Una seccion php para comprobar sino existe una sesion iniciada con privilegios de adm desde .. sino existe te redirige al index--->
     <?php
     session_start();
-    if(!isset($_SESSION["user"])){
+    if($_SESSION["rol"]!=="ADMINISTRADOR DE ÁREA"){
         header("Location:/SISTEMA EXPEDIENTES/index.php");
     }
- 
     ?>
 </head>
 

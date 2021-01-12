@@ -10,7 +10,10 @@ class Validation{
             $name_user=$_SESSION["user"];
             $dni_user=$_SESSION["dni"];
             $area=$_SESSION["area"];
-            $date=date('Y-m-d');
+            //Obteniendo fecha
+            $Object = new DateTime();  
+            $Object->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
+            $date = $Object->format("Y-m-d");  
             $name_petitioner=$_POST["name"];
             $dni_petitioner=$_POST["dni"];
             $procedure=$_POST["tramite"];

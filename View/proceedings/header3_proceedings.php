@@ -19,7 +19,7 @@
 
  
 <section class="bg-danger col-lg-6">
-        <a href="/SISTEMA EXPEDIENTES/View/user/new_user_operator.php" target="blank"><article>
+        <a href="/SISTEMA EXPEDIENTES/View/proceedings/control_proceedings.php" target="blank"><article>
             <label for=""class=" display-5 text-white font-weight-bold offset-lg-4 mt-4 font-italic">CONTROL DE EXPEDIENTES</label>
 
         <img src="/SISTEMA EXPEDIENTES/View/images/control de expedientes.png" alt="" width="150" height="120"  class="offset-lg-5">

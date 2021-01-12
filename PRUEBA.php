@@ -1,14 +1,12 @@
 <?php
-
+$value="01-11-2021";
 //$date=date("Y-m-d G:i:s");
 $Object = new DateTime();  
 $Object->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-$DateAndTime = $Object->format("Y-m-d H:i:s");  
-echo "La hora y dia en argentina es  $DateAndTime.\n";
-//Comparando fechas
-$vieja="2020-12-11 16:55:43";
+$Date= $Object->format("d-m-Y");
+echo "La hora y dia en argentina es  $Date.\n";
 
-if($DateAndTime>$vieja){
-    echo "Fecha mayor";
-}
+$date=date_create($value);
+echo date_format($date,"Y-m-d");
+
 ?>

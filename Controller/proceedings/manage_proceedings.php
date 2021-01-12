@@ -4,11 +4,11 @@ class Validation{
     public function __construct(){
         
         if(isset($_POST["gestionar"])){
-            //Obteniendo fecha y hora
+            //Obteniendo fecha y hora - fecha
             $Object = new DateTime();  
             $Object->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-            $dateandtime = $Object->format("Y-m-d H:i:s"); 
-            //Obteniendo valores del formulario o creando variables
+            $dateandtime = $Object->format("Y-m-d H:i:s");
+            $date = $Object->format("Y-m-d");  
             $number_id=$_POST["number"];
             $dni_user=$_SESSION["dni"];
             $area=$_SESSION["area"];
