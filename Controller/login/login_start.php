@@ -50,11 +50,9 @@ if(isset($_SESSION["user"])){
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header2_proceedings.php");
 //Mostrar las opciones de tramite header1 (nuevo expte, gestionar)
 require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header1_proceedings.php");
-    //Si el usuario que inicio sesion es administrador, se incorporan otras funciones
-    if($_SESSION["rol"]=="ADMINISTRADOR DE ÁREA"){
-        require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header3_proceedings.php");
-    }
-
+//mOSTRAR LAS OPCIONES CREAR USUARIOS(SOLO PARA ADMINIST.) Y CONTROL EXPEDIENTES
+require($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/header3_proceedings.php");
+    
 }else{
     //Sino existe una sesion iniciada incorpora el login s, que trae la parte grafica del login... y el archov header2_proceedings que contiene la parte visual de buscar expedientes...
     require_once($_SERVER['DOCUMENT_ROOT'])."/SISTEMA EXPEDIENTES/View/login/login.php";

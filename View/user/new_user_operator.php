@@ -17,7 +17,9 @@
     <?php
     session_start();
     if($_SESSION["rol"]!=="ADMINISTRADOR DE ÁREA"){
-        header("Location:/SISTEMA EXPEDIENTES/index.php");
+        echo'<script>alert("No tiene los permisos de administrador para acceder a crear usuarios")</script>';
+        echo'<a href="/SISTEMA EXPEDIENTES/index.php"><input type="button" value="Volver" style="color:white;background-color:orange;width:100%;height:100px;font-size:20px;"></a>';
+        exit();
     }
     ?>
 </head>
@@ -43,23 +45,10 @@ if (isset($_POST["submit"])) {
 
 <body>
 
-<!--------------------------Encabezado------------------------------------>
+<!----Encabezado de la pagina-------------------------------------->
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/styles/header.php");?>
+<!-------------------------------------------------------------------->
 
-    <header class="container-fluid bg-dark">
-
-
-    <div class="container row offset-lg-1">
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <figure>
-                <img src="/SISTEMA EXPEDIENTES/View/images/logo-removebg.png" width=150 heigth=150>
-            </figure>
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-10">
-            <h1 class="bg-transparent display-4 font-weight-bold text-warning mt-5">Sistema de Expedientes (SGE)</h1>
-            <h3 class="font-italic display-4 text-success">Municipalidad de Fernández</h3>
-        </div>
-    
-    </header>
 <!--Encabezado con el nombre de usuario y los botones menu y cerrar sesion---->
 <nav class="col-lg-3 offset-lg-9">
 

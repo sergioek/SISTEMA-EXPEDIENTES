@@ -11,7 +11,16 @@
                 echo "EXPEDIENTES GESTIONADOS ENTRE $date_initial y $date_end por $area";
 
             }
-                
+
+            if($filter=="EXPEDIENTES PENDIENTES"){
+                echo "EXPEDIENTES CON PASE A $area ENTRE $date_initial y $date_end";
+
+            }
+
+            if($filter=="EXPEDIENTES FINALIZADOS"){
+                echo "EXPEDIENTES FINALIZADOS - ARCHIVADOS POR TODAS LAS ÁREAS ENTRE $date_initial y $date_end";
+
+            }     
         ?>
     </h5>  
         
@@ -19,7 +28,7 @@
     <thead class="thead-dark">
     <tr>
         <th>
-            Número de Expediente
+            N° Expediente
         </th>
     
         <th>
@@ -32,6 +41,14 @@
 
         <th>
             DNI Operador
+        </th>
+
+        <th>
+            Estado
+        </th>
+
+        <th>
+            Trámite / Motivo
         </th>
     </tr>
     </thead>
@@ -50,7 +67,13 @@
 
         <td>
         
-            <?php echo $busqueda->FECHA;?>
+            <?php 
+                if(isset($busqueda->FECHA_HORA)){
+                    echo $busqueda->FECHA_HORA;
+                }else{
+                    echo $busqueda->FECHA;
+                }
+            ?>
 
         </td>
 
@@ -66,6 +89,22 @@
                 echo $busqueda->DNI_OPERADOR;
             }else{
                 echo $busqueda->OPERADOR;
+            }
+            ?>
+
+        </td>
+
+        <td>
+            <?php echo $busqueda->ESTADO;?>
+        
+        </td>
+
+        <td>
+            <?php 
+            if(isset($busqueda->TRAMITE)){
+                echo $busqueda->TRAMITE;
+            }else{
+                echo $busqueda->MOTIVO;
             }
             ?>
 

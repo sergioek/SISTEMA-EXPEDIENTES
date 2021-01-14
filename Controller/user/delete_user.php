@@ -26,8 +26,6 @@
                 //destruyendo la sesion para volver a inicar luego del update
                 require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php");
                 }catch(Exception $e){
-                    echo $e->getLine();
-                    echo $e->getMessage();
                     echo'<script language="javascript">alert("Error al eliminar cuenta de usuario");</script>';}
 
             }else{

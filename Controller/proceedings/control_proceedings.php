@@ -68,6 +68,20 @@ class Validation{
                         include($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/forms_control_proceedings/form_proceedings_control.php");
                     
                     }
+
+                    if($filter=="EXPEDIENTES PENDIENTES"){
+                        require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/control_proceedings/proceedings_slopes.php");
+                        //Incorporando el formulario que mostrara datos
+                        include($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/forms_control_proceedings/form_proceedings_control.php");
+                    
+                    }
+
+                    if($filter=="EXPEDIENTES FINALIZADOS"){
+                        require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/control_proceedings/proceedings_end.php");
+                        //Incorporando el formulario que mostrara datos
+                        include($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/proceedings/forms_control_proceedings/form_proceedings_control.php");
+                    
+                    }
               
                 }catch(Exception $e){
                     echo'<script language="javascript">alert("No se encontraron resultados para su busqueda");</script>';}

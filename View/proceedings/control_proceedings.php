@@ -15,9 +15,9 @@
     <link rel="icon" href="/SISTEMA EXPEDIENTES/View/images/favicon.ico" type="image/png">
 
     <?php
-    //Zona php para combrobar si se inicio una sesion con privilegios de admin. sino se inicio dirije al index
+    //Zona php para combrobar si se inicio una sesion 
     session_start();
-    if($_SESSION["rol"]!=="ADMINISTRADOR DE ÁREA"){
+    if(!isset($_SESSION["user"])){
         header("Location:/SISTEMA EXPEDIENTES/index.php");
     }
 
@@ -29,23 +29,9 @@
 
 <body>
 
-<!--------------------------Encabezado------------------------------------>
-
-    <header class="container-fluid bg-dark">
-
-
-    <div class="container row offset-lg-1">
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <figure>
-                <img src="/SISTEMA EXPEDIENTES/View/images/logo-removebg.png" width=150 heigth=150>
-            </figure>
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-10">
-            <h1 class="bg-transparent display-4 font-weight-bold text-warning mt-5">Sistema de Expedientes (SGE)</h1>
-            <h3 class="font-italic display-4 text-success">Municipalidad de Fernández</h3>
-        </div>
-    
-    </header>
+<!----Encabezado de la pagina-------------------------------------->
+<?php require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/View/styles/header.php");?>
+<!-------------------------------------------------------------------->
 
 <!--Encabezado con el nombre de usuario y los botones menu y cerrar sesion---->
 <?php require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/View/login/sign_off.php");?>
@@ -94,7 +80,8 @@
                         <select name="filter" id=""class="form-control col-lg-8" required>
                             <option value="EXPEDIENTES INICIADOS">EXPEDIENTES INICIADOS</option>
                             <option value="EXPEDIENTES GESTIONADOS">EXPEDIENTES GESTIONADOS</option>
-                            <option value="EXPEDIENTES PENDIENTES">EXPEDIENTES PENDIENTES</option>
+                            <option value="EXPEDIENTES PENDIENTES">EXPEDIENTES PENDIENTES(EN TRÁMITE CON PASE A ESTA ÁREA)</option>
+                            <option value="EXPEDIENTES FINALIZADOS">EXPEDIENTES FINALIZADOS-ARCHIVADOS POR TODAS LAS ÁREAS</option>
                         </select>
                 </td>
             </tr>
