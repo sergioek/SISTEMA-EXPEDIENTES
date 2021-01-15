@@ -47,8 +47,8 @@
             <tr>
                 <td>
                     <select name="rol" id="rol" class="form-control col-lg-8" title="Elegir rol de usuario a registrar">
-                        <option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño">ADMINISTRADOR DE ÁREA</option>
-                        <option name="rol" title="Usuario sin provilegios de administracíon y control">OPERARIO DE ÁREA</option>
+                        <option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño" value="1">ADMINISTRADOR DE ÁREA</option>
+                        <option name="rol" title="Usuario sin provilegios de administracíon y control" value="2">OPERARIO DE ÁREA</option>
                     </select required>
                 </td>
             </tr>

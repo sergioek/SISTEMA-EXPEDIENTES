@@ -56,6 +56,16 @@ while($estado_expediente=$resultado->fetch(PDO::FETCH_ASSOC)){
     $reason=$estado_expediente["MOTIVO"];
     $reason_transfer=$estado_expediente["MOTIVO_PASE"];
     $folios_current=$estado_expediente["FOLIOS"];
+    //COMO STATE ES NUM SE LE ASIGNA VALORES SEGUN TABLA DE BASE DE DATOS ESTADOS_GESTIONES
+    if($state==1){
+        $state="INICIO DE TRÁMITE";
+    }
+    if($state==2){
+        $state="EN TRÁMITE";
+    }
+    if($state==3){
+        $state="FINALIZADO-PARA ARCHIVAR";
+    }
 
 }
 }

@@ -46,24 +46,22 @@
                 $v3=TRUE;
                }
 
-               switch($rol){
-                case(empty($rol)):
-                    $v4=FALSE;
+               
+            switch($rol){
+                case(!filter_var($rol,FILTER_VALIDATE_INT)):
+                   $v4=FALSE;
                 break;
                 default:
                 $v4=TRUE;
                 }
 
-
-
-            
+        
                 if($v1 && $v2 && $v3&& $v4==TRUE){
 
                     try{
                 //realizando el update
                 require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/user/update_exist_user(admin).php");
                 //destruyendo la sesion para volver a inicar luego del update
-                require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/Controller/login/login_destroy.php");
                     }catch(Exception $e){
                         echo  $e->getLine();
                         echo $e->getMessage();

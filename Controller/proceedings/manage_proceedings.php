@@ -43,17 +43,15 @@ class Validation{
                 $v3=TRUE;
                 }
         
-   
+
             switch($state){
-                case(empty($state)):
-                    $v4=FALSE;
-                break;
-                case (strlen($state)>50):
+                case(!filter_var($state,FILTER_VALIDATE_INT)):
                     $v4=FALSE;
                 break;
                 default:
                 $v4=TRUE;
                 }
+            
 
             switch($procedure){
                 case(empty($procedure)):

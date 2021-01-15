@@ -10,7 +10,7 @@ $resultado->bindParam(1,$year,PDO::PARAM_INT);
 $resultado->bindParam(2,$date,PDO::PARAM_STR);
 $resultado->bindParam(3,$dni_petitioner,PDO::PARAM_INT);
 $resultado->bindParam(4,$procedure,PDO::PARAM_STR);
-$resultado->bindParam(5,$state,PDO::PARAM_STR);
+$resultado->bindParam(5,$state,PDO::PARAM_INT);
 $resultado->bindParam(6,$folios,PDO::PARAM_INT);
 $resultado->bindParam(7,$documentation,PDO::PARAM_STR);
 $resultado->bindParam(8,$area,PDO::PARAM_STR);

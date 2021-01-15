@@ -17,7 +17,7 @@ $resultado->bindParam(4,$home,PDO::PARAM_STR);
 $resultado->bindParam(5,$password_encrypt,PDO::PARAM_STR);
 $resultado->bindParam(6,$area,PDO::PARAM_STR);
 $resultado->bindParam(7,$charge,PDO::PARAM_STR);
-$resultado->bindParam(8,$rol,PDO::PARAM_STR);
+$resultado->bindParam(8,$rol,PDO::PARAM_INT);
 $resultado->bindParam(9,$telephone,PDO::PARAM_INT);
 $resultado->bindParam(10,$email,PDO::PARAM_STR);
 $resultado->execute();

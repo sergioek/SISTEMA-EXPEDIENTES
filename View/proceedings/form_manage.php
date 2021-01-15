@@ -103,8 +103,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_s
                 
                 <td class="display-6 text-muted">Estado:
                     <select name="estado" id="estado" class="form-control col-lg-8" required>
-                        <option name="estado" value="EN TRÁMITE">EN TRÁMITE</option>
-                        <option name="estado" value="FINALIZADO-PARA ARCHIVAR">FINALIZADO-PARA ARCHIVAR</option>
+                        <option name="estado" value="2">EN TRÁMITE</option>
+                        <option name="estado" value="3">FINALIZADO-PARA ARCHIVAR</option>
                     </select>
                 </td>
             </tr>

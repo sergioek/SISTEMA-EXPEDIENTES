@@ -95,10 +95,10 @@
                     <select name="rol" id="rol" class="form-control col-lg-8" title="Elegir rol de usuario a registrar">
                         <?php 
                         //si el usuario encontrado tiene el rol de administrador de area, se mostrara para que pueda mantener ese rol en el caso de hacer un update de sus datos
-                        if($rol=="ADMINISTRADOR DE ÁREA"){
-                            echo'<option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño">ADMINISTRADOR DE ÁREA</option>';
+                        if($rol==1){
+                            echo'<option name="rol" title="Usuario con provilegios de administracíon y control para poder crear operarios y controlar su desempeño" value="1">ADMINISTRADOR DE ÁREA</option>';
                         }else{
-                            echo '<option name="rol" title="Usuario sin provilegios de administracíon y control">OPERARIO DE ÁREA</option>';
+                            echo '<option name="rol" title="Usuario sin provilegios de administracíon y control" value="2">OPERARIO DE ÁREA</option>';
                         }
                         ?>
                     </select required>

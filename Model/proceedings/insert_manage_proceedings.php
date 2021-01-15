@@ -13,7 +13,7 @@ $resultado->bindParam(4,$area,PDO::PARAM_STR);
 $resultado->bindParam(5,$dni_user,PDO::PARAM_INT);
 $resultado->bindParam(6,$procedure,PDO::PARAM_STR);
 $resultado->bindParam(7,$folios,PDO::PARAM_INT);
-$resultado->bindParam(8,$state,PDO::PARAM_STR);
+$resultado->bindParam(8,$state,PDO::PARAM_INT);
 $resultado->bindParam(9,$go_to_area,PDO::PARAM_STR);
 $resultado->bindParam(10,$reason_pass,PDO::PARAM_STR);
 $resultado->execute();

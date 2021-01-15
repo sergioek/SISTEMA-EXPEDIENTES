@@ -95,7 +95,19 @@
         </td>
 
         <td>
-            <?php echo $busqueda->ESTADO;?>
+            <?php
+            $estado=$busqueda->ESTADO;
+            if($estado==1){
+                echo "INICIO DE TRÁMITE";
+            }
+            if($estado==2){
+                echo "EN TRÁMITE";
+            }
+            if($estado==3){
+                echo "FINALIZADO- PARA ARCHIVAR";
+            }
+            
+            ?>
         
         </td>
 

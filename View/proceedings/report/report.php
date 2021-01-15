@@ -96,7 +96,15 @@
         </td>
 
         <td>
-            <?php echo $gestiones->ESTADO;?>
+            <?php $estado=$gestiones->ESTADO;
+                    if($estado==2){
+                        $estado_exp="EN TRÁMITE";
+                    }
+                    if($estado==3){
+                        $estado_exp="FINALIZADO-PARA ARCHIVAR";
+                    }
+                    echo $estado_exp;
+            ?>
 
         </td>
 

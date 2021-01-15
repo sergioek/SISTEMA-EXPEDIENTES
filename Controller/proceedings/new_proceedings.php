@@ -66,10 +66,7 @@ class Validation{
                 }
             
             switch($state){
-                case(empty($state)):
-                    $v6=FALSE;
-                break;
-                case (strlen($state)>50):
+                case(!filter_var($state,FILTER_VALIDATE_INT)):
                     $v6=FALSE;
                 break;
                 default:

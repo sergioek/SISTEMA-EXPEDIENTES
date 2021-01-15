@@ -16,7 +16,7 @@
 <!-- Una seccion php para comprobar sino existe una sesion iniciada con privilegios de adm desde .. sino existe te redirige al index--->
     <?php
     session_start();
-    if($_SESSION["rol"]!=="ADMINISTRADOR DE ÁREA"){
+    if($_SESSION["rol"]!=1){
         echo'<script>alert("No tiene los permisos de administrador para acceder a crear usuarios")</script>';
         echo'<a href="/SISTEMA EXPEDIENTES/index.php"><input type="button" value="Volver" style="color:white;background-color:orange;width:100%;height:100px;font-size:20px;"></a>';
         exit();
@@ -126,7 +126,7 @@ if (isset($_POST["submit"])) {
             <tr>
                 <td>
                     <select name="rol" id="rol" class="form-control col-lg-8" title="Elegir rol de usuario a registrar">
-                        <option name="rol" title="Usuario sin provilegios de administracíon y control">OPERARIO DE ÁREA</option>
+                        <option name="rol" title="Usuario sin provilegios de administracíon y control" value="2">OPERADOR DE ÁREA</option>
                     </select required>
                 </td>
             </tr>

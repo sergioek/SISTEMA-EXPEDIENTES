@@ -29,7 +29,7 @@
             <tr> 
                 <td>
                     <select name="estado" id="estado" class="form-control col-lg-8" required>
-                        <option name="estado" value="INICIO DE TRÁMITE">INICIO DE TRÁMITE</option>
+                        <option name="estado" value="1">INICIO DE TRÁMITE</option>
                     </select>
                 </td>
             </tr>
