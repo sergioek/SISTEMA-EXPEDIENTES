@@ -56,7 +56,7 @@
 if(isset($_POST["search"])){
     require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Controller/petitioner/search_petitioner.php");
     //Si se pulsa el boton search y el campo name no esta vacio como consecuencia de que se encontro un usuario, se habilitan los botones actualizar o eliminar y se imprime un javascript
-    if(!empty($name)){
+    if(!empty($name_petitioner)){
         require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/View/petitioner/form-update.php");
 
         echo"<script lenguage='javascript'>alert('Se encontro un solicitante en la base de datos. Puede actualizarlo o eliminarlo.')</script>";

@@ -7,7 +7,6 @@ class Validation{
             //Obteniendo valores del formulario o creando variables
             //$number= sera un valor autoincrementable
             $year=date('Y');
-            $name_user=$_SESSION["user"];
             $dni_user=$_SESSION["dni"];
             $area=$_SESSION["area"];
             //Obteniendo fecha
@@ -20,8 +19,6 @@ class Validation{
             $state=$_POST["estado"];
             $folios=$_POST["folios"];
             $documentation=$_POST["documentacion"];
-
-            
 
             //Iniciando comprobaciones
             switch($dni_user){
@@ -73,18 +70,14 @@ class Validation{
                 $v6=TRUE;
                 }
 
-
             switch($procedure){
-                case(empty($procedure)):
-                    $v7=FALSE;
-                break;
-                case (strlen($procedure)>50):
+                case(!filter_var($procedure,FILTER_VALIDATE_INT)):
                     $v7=FALSE;
                 break;
                 default:
                 $v7=TRUE;
                 }
-
+    
             switch($folios){
                 case(!filter_var($folios,FILTER_VALIDATE_INT)):
                     $v8=FALSE;
@@ -102,7 +95,7 @@ class Validation{
                 case(empty($documentation)):
                     $v9=FALSE;
                 break;
-                case (strlen($documentation)>300):
+                case (strlen($documentation)>100):
                     $v9=FALSE;
                 break;
                 default:
@@ -121,24 +114,28 @@ class Validation{
                 }
 
 //Si todas las validaciones son verdaderas se incorpora el archivo para hacer la insercion            
-            if($v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8  && $v9 &&$v10==TRUE){
+    if($v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8  && $v9 && $v10==TRUE){
 
-                try{
-                require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/insert_proceedings.php");
-                //Llamando a los archivos para crear pdf.. el insert_proceedings retorna el number_id QUE PERMITE SABER QUE SE HA REALIZADO LA INSERCION DE UN NUEVO REGISTRO Y DETERMINAR SU ID
-                    if(isset($number_id)){
-                        require_once($_SERVER["DOCUMENT_ROOT"] . "/SISTEMA EXPEDIENTES/Controller/reportPDF/create_caratula.php");
-                    } 
-                }catch(Exception $e){
-                    echo'<script language="javascript">alert("Error al registrar el expediente");</script>';}
+        try{
+             require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/insert_proceedings.php");
+            //Llamando a los archivos para crear pdf.. el insert_proceedings retorna el number_id QUE PERMITE SABER QUE SE HA REALIZADO LA INSERCION DE UN NUEVO REGISTRO Y DETERMINAR SU ID
+            if(isset($number_id)){
+                //Buscando el Nombre del tramite por el id, para crear la caratula
+                require_once($_SERVER["DOCUMENT_ROOT"] . "/SISTEMA EXPEDIENTES/Controller/reportPDF/create_caratula.php");
+                } 
+        
+         }catch(Exception $e){
+             echo'<script language="javascript">alert("Error al registrar el expediente");</script>';
+            echo "El error es" . $e->getLine();}
 
-            }else{
-                echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato");</script>';}
-            
-            }
-
-    }
+    }else{
+        echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato);</script>';}
+    
 }
+
+}
+}
+
 $call=new Validation;
 ?>
 

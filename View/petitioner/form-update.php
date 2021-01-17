@@ -3,7 +3,7 @@
 <table class="table container col-lg-8 offset-lg-3">
     <tr>
         <td>
-            <input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z-Ñ ]{8,50}" title="Use mayusculas hasta 50 caracteres sin simbolos extraños" placeholder="Nombres y apellidos completos" value="<?php echo $name;?>" required>
+            <input class="form-control col-lg-8" type="text" name="name" id="name" maxlength="50" pattern="[A-Z-Ñ ]{8,50}" title="Use mayusculas hasta 50 caracteres sin simbolos extraños" placeholder="Nombres y apellidos completos" value="<?php echo $name_petitioner;?>" required>
         </td>
     </tr>
 

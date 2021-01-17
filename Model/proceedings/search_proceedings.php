@@ -13,11 +13,20 @@ while($expedientes=$resultado->fetch(PDO::FETCH_ASSOC)){
     $number=$expedientes["NUMERO"];
     $date=$expedientes["FECHA"];
     $dni_petitioner=$expedientes["DNI_SOLICITANTE"];
-    $procedure=$expedientes["TRAMITE"];
+    $procedure_id=$expedientes["TRAMITE"];
     $folios_iniciales=$expedientes["FOLIOS"];
     $documentation=$expedientes["DOCUMENTACION"];
     $area_inicio=$expedientes["AREA"];
+
+    //Busca el nombre del tramite, ya que solo se obtiene el id 
+    $sql="SELECT NOMBRE FROM TRAMITES WHERE ID=?";
+    $resultado=$conexion->prepare($sql);
+    $resultado->execute(array($procedure_id));
+    $busqueda=$resultado->fetch(PDO::FETCH_OBJ);
+    $procedure=$busqueda->NOMBRE;
+
 }
+
 
 //pARA BUSCAR EL NOMBRE DEL SOLICITANTE SE HACE OTRA CONSULTA
 if(!empty($dni_petitioner)){

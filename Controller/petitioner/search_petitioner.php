@@ -12,7 +12,7 @@ try{
    $resultado->execute(array($dni));
    while($solicitante=$resultado->fetch(PDO::FETCH_ASSOC)){
     $dni=$solicitante["DNI"];
-    $name=$solicitante["SOLICITANTE"];
+    $name_petitioner=$solicitante["SOLICITANTE"];
     $date=$solicitante["NACIMIENTO"];
     $home=$solicitante["DOMICILIO"];
     $telephone=$solicitante["TELEFONO"];

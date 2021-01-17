@@ -19,6 +19,9 @@
     session_start();
     if(!isset($_SESSION["user"])){
         header("Location:/SISTEMA EXPEDIENTES/index.php");   
+    }else{
+        //Incorpora un archivo sql para obtener los tramites y mostrarlas dentro del archivo en la lista desplegable
+        require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Model/procedure/search_procedure.php');
     }
     ?>
 
@@ -52,6 +55,18 @@ if (isset($_POST["registrar"])) {
         <table class="table container col-lg-8 offset-lg-3">
             <tr><td><input class="form-control col-lg-8" type="number" name="dni" id="dni" max="100000000" value="<?php echo $dni;?>" placeholder="Ingrese un DNI para buscar un solicitante"></td></tr>
 
+            
+        <tr>
+            <td>Trámite a realizar
+                <select name="id" id=""class="form-control col-lg-8" title="Trámite a realizar por el solicitante">
+                    <?php foreach($registro as $procedure):?>
+                    <option value="<?php echo $procedure->ID;?>"><?php echo $procedure->NOMBRE;?></option>
+                    <?php endforeach;?>
+                </select>
+            </td>
+        </tr>
+
+
             <tr>
                 <td>
                     <input class="form-control col-lg-2 btn btn-info " type="submit" name="search" value="Buscar">
@@ -68,13 +83,16 @@ if (isset($_POST["registrar"])) {
     <?php
 //Inicializa variables vacias para poder set en los cuadros de texto del formulario de datos
 $dni="";
-$name="";
+$name_petitioner="";
 //Cuando el usuario complete el dni y pulse el boton search la pagina se recargara e incluira el archivo search petitioner por los que las variables antes definidas tomaran valores si se encuatra un usuario e impactaran en los cuadros de texto.. En ese momento aparecera el formulario para iniciar el tramite
 if(isset($_POST["search"])){
 
-    require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Controller/petitioner/search_petitioner.php");
 
-    if(!empty($name)){
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Controller/petitioner/search_petitioner.php");
+    //Buscando el tramite seleccionado por id
+    require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Model/procedure/select_procedure.php");
+
+    if(!empty($name_petitioner)){
         echo"<script lenguage='javascript'>alert('Se encontro un solicitante.Puede ahora cargar el tramite')</script>";
         require_once($_SERVER["DOCUMENT_ROOT"]. "/SISTEMA EXPEDIENTES/View/proceedings/form.php");
     }else{

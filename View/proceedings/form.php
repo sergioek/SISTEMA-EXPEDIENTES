@@ -6,7 +6,7 @@
             <tr>
                 <td>
                     <select name="name" id="name" class="form-control col-lg-8" maxlength="50" required>
-                            <option name="name=<?php echo $name;?>"><?php echo $name; ?>
+                            <option name="name=<?php echo $name_petitioner;?>"><?php echo $name_petitioner; ?>
                         </option>
                     </select>
                 </td>
@@ -25,19 +25,19 @@
             <tr>
                 <td><input class="form-control col-lg-8" type="date" name="date" id="date" min="2020-01-01" max="2100-01-01" required  value="<?php $fechaActual = date('Y-m-d'); echo $fechaActual;?>" disabled></td>
             </tr>
-
             <tr> 
                 <td>
                     <select name="estado" id="estado" class="form-control col-lg-8" required>
-                        <option name="estado" value="1">INICIO DE TRÁMITE</option>
+                        <option name="estado" value="1">INICIO DE TRÁMITE</option >
                     </select>
                 </td>
             </tr>
 
-
             <tr> 
                 <td>
-                    <textarea class="form-control col-lg-8" name="tramite" id="tramite" cols="30" rows="3" placeholder="Descripcíon del tramite" maxlength="50" required style="resize: none;"></textarea>
+                    <select name="tramite" id="tramite" class="form-control col-lg-8" required title="Trámite a realizar" >
+                        <option value="<?php echo $id;?>"><?php echo $name; ?></option >
+                    </select>
                 </td>
             </tr>
 
@@ -46,7 +46,7 @@
             </tr>
 
             <tr>
-                <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="300" required style="resize: none;"></textarea></td>
+                <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="100" required style="resize: none;"><?php echo $requeriments;?></textarea></td>
             </tr>
 
             <tr>

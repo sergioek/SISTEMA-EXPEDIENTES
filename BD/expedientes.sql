@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2021 a las 02:45:24
+-- Tiempo de generación: 17-01-2021 a las 03:11:29
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -62,8 +62,8 @@ CREATE TABLE `area` (
 
 CREATE TABLE `estados_tramites` (
   `ID_ESTADO` int(11) NOT NULL,
-  `NOMBRE` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(50) NOT NULL
+  `NOMBRE` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `DESCRIPCION` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `expedientes` (
   `AÑO` int(4) NOT NULL,
   `FECHA` date NOT NULL,
   `DNI_SOLICITANTE` int(12) NOT NULL,
-  `TRAMITE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `TRAMITE` int(11) NOT NULL,
   `ESTADO` int(2) NOT NULL,
   `FOLIOS` int(3) NOT NULL,
   `DOCUMENTACION` text COLLATE utf8_spanish_ci NOT NULL,
@@ -140,8 +140,8 @@ CREATE TABLE `operadores` (
 
 CREATE TABLE `roles_operadores` (
   `ID` int(11) NOT NULL,
-  `ROL` varchar(50) NOT NULL,
-  `DESCRIPCION` varchar(50) NOT NULL
+  `ROL` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `DESCRIPCION` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -166,6 +166,20 @@ CREATE TABLE `solicitante` (
   `TELEFONO` bigint(12) NOT NULL,
   `CORREO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tramites`
+--
+
+CREATE TABLE `tramites` (
+  `ID` int(11) NOT NULL,
+  `FECHA` date NOT NULL,
+  `NOMBRE` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `AREA_TRAMITE` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `REQUISITOS` text CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -208,7 +222,8 @@ ALTER TABLE `expedientes`
   ADD KEY `DNI_SOLICITANTE` (`DNI_SOLICITANTE`),
   ADD KEY `DNI_OPERADOR` (`DNI_OPERADOR`),
   ADD KEY `AREA` (`AREA`),
-  ADD KEY `ESTADO` (`ESTADO`);
+  ADD KEY `ESTADO` (`ESTADO`),
+  ADD KEY `TRAMITE` (`TRAMITE`);
 
 --
 -- Indices de la tabla `operadores`
@@ -229,6 +244,14 @@ ALTER TABLE `roles_operadores`
 --
 ALTER TABLE `solicitante`
   ADD PRIMARY KEY (`DNI`);
+
+--
+-- Indices de la tabla `tramites`
+--
+ALTER TABLE `tramites`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `NOMBRE` (`NOMBRE`),
+  ADD KEY `AREA_TRAMITE` (`AREA_TRAMITE`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -259,6 +282,12 @@ ALTER TABLE `roles_operadores`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de la tabla `tramites`
+--
+ALTER TABLE `tramites`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -279,7 +308,8 @@ ALTER TABLE `expedientes`
   ADD CONSTRAINT `expedientes_ibfk_1` FOREIGN KEY (`AREA`) REFERENCES `area` (`NOMBRE`) ON UPDATE CASCADE,
   ADD CONSTRAINT `expedientes_ibfk_2` FOREIGN KEY (`DNI_SOLICITANTE`) REFERENCES `solicitante` (`DNI`) ON UPDATE CASCADE,
   ADD CONSTRAINT `expedientes_ibfk_3` FOREIGN KEY (`DNI_OPERADOR`) REFERENCES `operadores` (`DNI`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `expedientes_ibfk_4` FOREIGN KEY (`ESTADO`) REFERENCES `estados_tramites` (`ID_ESTADO`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `expedientes_ibfk_4` FOREIGN KEY (`ESTADO`) REFERENCES `estados_tramites` (`ID_ESTADO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `expedientes_ibfk_5` FOREIGN KEY (`TRAMITE`) REFERENCES `tramites` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `operadores`
@@ -287,6 +317,12 @@ ALTER TABLE `expedientes`
 ALTER TABLE `operadores`
   ADD CONSTRAINT `operadores_ibfk_1` FOREIGN KEY (`AREA`) REFERENCES `area` (`NOMBRE`) ON UPDATE CASCADE,
   ADD CONSTRAINT `operadores_ibfk_2` FOREIGN KEY (`ROL`) REFERENCES `roles_operadores` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tramites`
+--
+ALTER TABLE `tramites`
+  ADD CONSTRAINT `tramites_ibfk_1` FOREIGN KEY (`AREA_TRAMITE`) REFERENCES `area` (`NOMBRE`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -30,3 +30,19 @@
 
 
 </div>
+
+
+
+<div class="container row col-lg-12 offset-lg-0 mb-3">
+
+    <section class="bg-light col-lg-12">
+         <a href="/SISTEMA EXPEDIENTES/View/user/update_user.php" target="blank"><article>
+        <label for=""class=" display-5 text-dark font-weight-bold offset-lg-5 mt-4 font-italic">MI CUENTA DE USUARIO</label>
+           
+            <img class="offset-lg-5" src="/SISTEMA EXPEDIENTES/View/images/cuenta.png" alt="" width="150" height="150" class="offset-lg-4">
+            
+        </article></a>
+
+    </section>
+
+</div>

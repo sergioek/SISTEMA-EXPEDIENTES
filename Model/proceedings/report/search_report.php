@@ -6,17 +6,22 @@ $conexion=Conexion::Conect();
 //Consultando los datos iniciales del expediente
 $consulta_expediente="SELECT AÑO,FECHA,DNI_SOLICITANTE,TRAMITE,FOLIOS,AREA FROM EXPEDIENTES WHERE NUMERO=? AND AÑO=?";
 
-
 $resultado=$conexion->prepare($consulta_expediente);
 $resultado->execute(array($number,$year));
-
 while($expediente=$resultado->fetch(PDO::FETCH_ASSOC)){
     $YEAR=$expediente["AÑO"];
     $DATE=$expediente["FECHA"];
     $PETITIONER=$expediente["DNI_SOLICITANTE"];
-    $PROCEDURE=$expediente["TRAMITE"];
+    $PROCEDURE_ID=$expediente["TRAMITE"];
     $FOLIOS=$expediente["FOLIOS"];
     $AREA=$expediente["AREA"];
+
+    //Busca el nombre del tramite, ya que solo se obtiene el id 
+    $sql="SELECT NOMBRE FROM TRAMITES WHERE ID=?";
+    $resultado=$conexion->prepare($sql);
+    $resultado->execute(array($PROCEDURE_ID));
+    $busqueda=$resultado->fetch(PDO::FETCH_OBJ);
+    $PROCEDURE=$busqueda->NOMBRE;
 }
 //Contando el numero de registros afectados por la consulta, lo cual significa que el expediente existe
 $numeros_expediente=$resultado->rowCount();
