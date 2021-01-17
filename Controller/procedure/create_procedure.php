@@ -44,7 +44,7 @@ class Validation{
         }
 
         switch ($requeriments) {
-            case (strlen($requeriments)>100):
+            case (strlen($requeriments)>300):
                 $v3=FALSE;
                 break;
              case (empty($requeriments)):

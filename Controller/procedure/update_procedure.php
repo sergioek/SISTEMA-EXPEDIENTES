@@ -14,7 +14,7 @@ class Validation{
             $date = $Object->format("Y-m-d");  
 
         switch ($requeriments) {
-            case (strlen($requeriments)>100):
+            case (strlen($requeriments)>300):
                 $v1=FALSE;
                 break;
              case (empty($requeriments)):

@@ -95,11 +95,17 @@
     //Si el usuario pulsa el boton guardar...
     if (isset($_POST["save"])) {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/procedure/create_procedure.php'); 
+        //Refrescar para poder mostar los tramites creados en el select
+        $self = $_SERVER['PHP_SELF']; //Obtenemos la página en la que nos encontramos
+        header("refresh:0; url=$self"); //Refrescamos a los 0 seg
     }
 
     //Si el usuario pulsa el boton actualizar...
     if (isset($_POST["update"])) {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/procedure/update_procedure.php'); 
+        //Refrescar para poder mostar los tramites creados en el select
+        $self = $_SERVER['PHP_SELF']; //Obtenemos la página en la que nos encontramos
+         header("refresh:0; url=$self"); //Refrescamos a los 0 seg
     }
 
     ?>

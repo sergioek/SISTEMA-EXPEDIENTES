@@ -46,7 +46,7 @@
             </tr>
 
             <tr>
-                <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="100" required style="resize: none;"><?php echo $requeriments;?></textarea></td>
+                <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="300" required style="resize: none;"><?php echo $requeriments;?></textarea></td>
             </tr>
 
             <tr>

@@ -73,13 +73,14 @@ if(isset($_POST["search"])){
     //Si no se encuentra a un usuario porque la variable nombre eta vacia
     if(!isset($name)){
         require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/View/user/form-user-admin.php");
+        echo '<script language="javascript">alert("No se encontró un usuario. Ahora podrá cargalo mediante el siguiente formulario");</script>';
     }else{
         require($_SERVER["DOCUMENT_ROOT"]."/SISTEMA EXPEDIENTES/View/user/form-edit-user-admin.php");
+        echo '<script language="javascript">alert("Se encontró un usuario. Ahora podrá editarlo mediante el siguiente formulario");</script>';
     }
 }
 
 ?>
-
 
 <?php
 //Si el usuario pulsa el boton registrar se comprube si los password son iguales, si lo son se llama al archivo para hacer las validaciones restantes

@@ -53,7 +53,15 @@
     </tr>
     </thead>
 <!---Bucle------------------------------------------------------->
-<?php foreach ($expedientes as $busqueda) :?>
+<?php foreach ($expedientes as $busqueda) :
+     //Busca el nombre del tramite, ya que solo el id se inserto en la BD. 
+     if(isset($busqueda->TRAMITE)){
+        $sql="SELECT NOMBRE FROM TRAMITES WHERE ID=?";
+        $resultado=$conexion->prepare($sql);
+        $resultado->execute(array($busqueda->TRAMITE));
+        $busqueda_tramite=$resultado->fetch(PDO::FETCH_OBJ);
+    }
+    ?>
     <tr>
         <td>
             <?php 
@@ -114,7 +122,7 @@
         <td>
             <?php 
             if(isset($busqueda->TRAMITE)){
-                echo $busqueda->TRAMITE;
+                echo $busqueda_tramite->NOMBRE;
             }else{
                 echo $busqueda->MOTIVO;
             }

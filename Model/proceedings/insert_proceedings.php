@@ -17,13 +17,13 @@ $resultado->bindParam(7,$documentation,PDO::PARAM_STR);
 $resultado->bindParam(8,$area,PDO::PARAM_STR);
 $resultado->bindParam(9,$dni_user,PDO::PARAM_INT);
 $resultado->execute();
+//Retorna el numero de expediente ingresado, el cual es autoincrement y se usara para generar el pdf caratula....
+$number_id= $conexion->lastInsertId();
 //Busca el nombre del tramite, ya que solo el id se inserto en la BD. obtener el nombre permitira crear el pdf de mejor manera 
 $sql="SELECT NOMBRE FROM TRAMITES WHERE ID=?";
 $resultado=$conexion->prepare($sql);
 $resultado->execute(array($procedure));
 $busqueda=$resultado->fetch(PDO::FETCH_OBJ);
 $procedure=$busqueda->NOMBRE;
-//Retorna el numero de expediente ingresado, el cual es autoincrement y se usara para generar el pdf caratula. 
-$number_id= $conexion->lastInsertId();
 $resultado->closeCursor();
 ?>

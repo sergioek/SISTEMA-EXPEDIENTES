@@ -19,11 +19,18 @@ class Validation{
             $state=$_POST["estado"];
             $folios=$_POST["folios"];
             $documentation=$_POST["documentacion"];
+            //Nombre del usuario servira luego para el pdf, no para la bd
+            $name_user=$_SESSION["user"];
+            
+            
 
             //Iniciando comprobaciones
             switch($dni_user){
                 case(!filter_var($dni_user,FILTER_VALIDATE_INT)):
                    $v1=FALSE;
+                break;
+                case(empty($name_user)):
+                    $v1=FALSE;
                 break;
                 default:
                 $v1=TRUE;
@@ -95,7 +102,7 @@ class Validation{
                 case(empty($documentation)):
                     $v9=FALSE;
                 break;
-                case (strlen($documentation)>100):
+                case (strlen($documentation)>300):
                     $v9=FALSE;
                 break;
                 default:

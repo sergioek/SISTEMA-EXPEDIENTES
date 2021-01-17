@@ -33,7 +33,7 @@
 
             <tr>
                 <td>
-                    <textarea name="requeriments" id="requeriments" cols="30" rows="10" style="resize:none;" maxlength="100" placeholder="Requisitos para el trámite" class="form-control col-lg-8" required><?php echo $requeriments?></textarea>
+                    <textarea name="requeriments" id="requeriments" cols="30" rows="10" style="resize:none;" maxlength="300" placeholder="Requisitos para el trámite" class="form-control col-lg-8" required><?php echo $requeriments?></textarea>
                 </td>
             </tr>
 
