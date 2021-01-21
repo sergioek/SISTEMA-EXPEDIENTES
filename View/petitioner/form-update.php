@@ -9,7 +9,7 @@
 
     <tr>
         <td>
-            <input class="form-control col-lg-8" type="number" name="dni" id="dni" min="10000000" max="99000000" value="<?php echo $dni;?>" required placeholder="DNI" readonly>
+            <input class="form-control col-lg-8" type="number" name="dni" id="dni" min="10000000" max="40000000000" value="<?php echo $dni;?>" required placeholder="DNI, CUIL/CUIT" readonly>
         </td>
     </tr>
 

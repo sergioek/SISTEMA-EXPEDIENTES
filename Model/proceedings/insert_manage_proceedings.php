@@ -24,11 +24,16 @@ $path = $_SERVER["DOCUMENT_ROOT"] . "/SISTEMA EXPEDIENTES/FILES_UPLOADS/$number_
 if (!is_dir($path)) {
     //Creando la carpeta
     mkdir($path, 0777, true);
-    //mOVER del directorio temporal a la carpeta de destino
-    move_uploaded_file($_FILES["file"]['tmp_name'],$path.$file_name);
+    //mOVER del directorio temporal a la carpeta de destino pero si no se cargo el archivo (file_name) estara vacio y no se realiza el mov
+    if(!empty($file_name)){
+        move_uploaded_file($_FILES["file"]['tmp_name'],$path.$file_name);
+    }
+
 }else{
       //mOVER del directorio temporal a la carpeta de destino
-      move_uploaded_file($_FILES["file"]['tmp_name'],$path.$file_name); 
+      if(!empty($file_name)){
+        move_uploaded_file($_FILES["file"]['tmp_name'],$path.$file_name);
+    }
 }
 
 ?>

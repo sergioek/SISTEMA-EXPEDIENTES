@@ -131,8 +131,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_s
             
             <tr>
                 <td class="display-6 text-muted">Documentacíon digital:
-                    <input type="file" name="file" id="" class="form-control-file col-lg-8" required>
-                
+                    <input type="file" name="file" id="" class="form-control-file col-lg-8">
                 </td>
             </tr>
 

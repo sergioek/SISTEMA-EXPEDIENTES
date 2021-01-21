@@ -41,7 +41,7 @@
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 <table class="table container col-lg-8 offset-lg-3">
 
-    <tr><td><input class="form-control col-lg-8" type="number" name="dni" id="dni" max="100000000" value="<?php echo $dni;?>" required required placeholder="Ingrese un DNI para buscar o crear un solicitante" ></td></tr>
+    <tr><td><input class="form-control col-lg-8" type="number" name="dni" id="dni" max="40000000000" value="<?php echo $dni;?>" required required placeholder="Ingrese un DNI o CUIL/CUIT para buscar o crear un solicitante" ></td></tr>
 
     <tr><td><input class="form-control col-lg-2 btn btn-info " type="submit" name="search" value="Buscar"></td></tr>
 

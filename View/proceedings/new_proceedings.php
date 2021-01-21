@@ -53,7 +53,7 @@ if (isset($_POST["registrar"])) {
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <!----Tabla de busqueda de solicitante---->
         <table class="table container col-lg-8 offset-lg-3">
-            <tr><td><input class="form-control col-lg-8" type="number" name="dni" id="dni" max="100000000" value="<?php echo $dni;?>" placeholder="Ingrese un DNI para buscar un solicitante"></td></tr>
+            <tr><td><input class="form-control col-lg-8" type="number" name="dni" id="dni" max="40000000000" value="<?php echo $dni;?>" placeholder="Ingrese un DNI, CUIL/CUIT para buscar un solicitante"></td></tr>
 
             
         <tr>

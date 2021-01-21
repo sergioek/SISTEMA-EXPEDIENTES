@@ -11,7 +11,7 @@
 
     <tr>
         <td>
-            <input class="form-control col-lg-8" type="number" name="dni" id="dni" min="10000000" max="99000000"required placeholder="DNI" value="<?php echo $dni;?>" >
+            <input class="form-control col-lg-8" type="number" name="dni" id="dni" min="10000000" max="40000000000"required placeholder="DNI, CUIL/CUIT" value="<?php echo $dni;?>" >
         </td>
     </tr>
 

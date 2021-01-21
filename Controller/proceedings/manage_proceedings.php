@@ -18,10 +18,16 @@ class Validation{
             $go_to_area=$_POST["area"];
             $reason_pass=$_POST["motivo_pase"];
             $year=$_POST["year"];
-            //Recibiendo archivo PDF y determinando sus atributos
-            $file_name=$_FILES["file"]['name'];
-            $file_type=$_FILES["file"]['type'];
-            $file_size=$_FILES["file"]['size'];
+            //Recibiendo archivo PDF y determinando sus atributos. en el caso de no cargarse archivo, se toman otros valores. pero en la bd no se introducira nada por lo cual el campo archivo quedara vacio
+            if(!empty($_FILES["file"]['name'])){
+                $file_name=$_FILES["file"]['name'];
+                $file_type=$_FILES["file"]['type'];
+                $file_size=$_FILES["file"]['size'];
+            }else{
+                $file_name="";
+                $file_type="application/pdf";
+                $file_size=2;
+            }
 
             //Iniciando comprobaciones
             switch($number_id){
@@ -131,6 +137,7 @@ class Validation{
                     default:
                     $v11=TRUE;
                     }
+
                 switch($year){
                     case(!filter_var($year,FILTER_VALIDATE_INT)):
                         $v12=FALSE;

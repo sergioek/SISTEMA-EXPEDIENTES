@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-01-2021 a las 01:13:35
+-- Tiempo de generación: 21-01-2021 a las 16:36:25
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -92,7 +92,7 @@ CREATE TABLE `estado_expedientes` (
   `ESTADO` int(2) NOT NULL,
   `CON_PASE_A` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `MOTIVO_PASE` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
-  `ARCHIVO` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+  `ARCHIVO` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -105,7 +105,7 @@ CREATE TABLE `expedientes` (
   `NUMERO` int(11) NOT NULL,
   `AÑO` int(4) NOT NULL,
   `FECHA` date NOT NULL,
-  `DNI_SOLICITANTE` int(12) NOT NULL,
+  `DNI_SOLICITANTE` bigint(12) NOT NULL,
   `TRAMITE` int(11) NOT NULL,
   `ESTADO` int(2) NOT NULL,
   `FOLIOS` int(3) NOT NULL,
@@ -162,7 +162,7 @@ INSERT INTO `roles_operadores` (`ID`, `ROL`, `DESCRIPCION`) VALUES
 
 CREATE TABLE `solicitante` (
   `SOLICITANTE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `DNI` int(12) NOT NULL,
+  `DNI` bigint(12) NOT NULL,
   `NACIMIENTO` date NOT NULL,
   `DOMICILIO` text COLLATE utf8_spanish_ci NOT NULL,
   `TELEFONO` bigint(12) NOT NULL,
@@ -302,10 +302,10 @@ ALTER TABLE `estado_expedientes`
 --
 ALTER TABLE `expedientes`
   ADD CONSTRAINT `expedientes_ibfk_1` FOREIGN KEY (`AREA`) REFERENCES `area` (`NOMBRE`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `expedientes_ibfk_2` FOREIGN KEY (`DNI_SOLICITANTE`) REFERENCES `solicitante` (`DNI`) ON UPDATE CASCADE,
   ADD CONSTRAINT `expedientes_ibfk_3` FOREIGN KEY (`DNI_OPERADOR`) REFERENCES `operadores` (`DNI`) ON UPDATE CASCADE,
   ADD CONSTRAINT `expedientes_ibfk_4` FOREIGN KEY (`ESTADO`) REFERENCES `estados_tramites` (`ID_ESTADO`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `expedientes_ibfk_5` FOREIGN KEY (`TRAMITE`) REFERENCES `tramites` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `expedientes_ibfk_5` FOREIGN KEY (`TRAMITE`) REFERENCES `tramites` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `expedientes_ibfk_6` FOREIGN KEY (`DNI_SOLICITANTE`) REFERENCES `solicitante` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `operadores`
