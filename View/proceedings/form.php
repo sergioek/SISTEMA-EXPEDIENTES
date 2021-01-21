@@ -51,7 +51,7 @@
 
             <td class="display-6 text-muted">Año de Expediente:</td>
             <tr>
-                <td><input class="form-control col-lg-8" type="number" name="year_proceedings" id="number" max="<?php echo $year_value;?>" required placeholder="Ingrese el año de expediente" title="Ingresar el año de expediente"></td>
+                <td><input class="form-control col-lg-8" type="number" name="year_proceedings" id="number" max="<?php echo $year_value;?>" value="<?php echo $year_value;?>" required placeholder="Ingrese el año de expediente" title="Ingresar el año de expediente"></td>
             </tr>
 
             <tr>
