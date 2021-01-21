@@ -132,8 +132,6 @@ class Validation{
                 
                 require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/user/insert_new_user.php");
                 }catch(Exception $e){
-                    echo $e->getLine();
-                    echo $e->getMessage();
                     echo'<script language="javascript">alert("Error al registrar usuario. El DNI ya existe en la base de datos");</script>';}
 
             }else{

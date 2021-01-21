@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] ."/SISTEMA EXPEDIENTES/Model/conect.php")
 $conexion=Conexion::Conect();
 
 //Consultando los datos iniciales del expediente
-$consulta_expediente="SELECT AÑO,FECHA,DNI_SOLICITANTE,TRAMITE,FOLIOS,AREA FROM EXPEDIENTES WHERE NUMERO=? AND AÑO=?";
+$consulta_expediente="SELECT AÑO,FECHA,DNI_SOLICITANTE,TRAMITE,FOLIOS,AREA,DOCUMENTACION,ARCHIVO FROM EXPEDIENTES WHERE NUMERO=? AND AÑO=?";
 
 $resultado=$conexion->prepare($consulta_expediente);
 $resultado->execute(array($number,$year));
@@ -15,6 +15,8 @@ while($expediente=$resultado->fetch(PDO::FETCH_ASSOC)){
     $PROCEDURE_ID=$expediente["TRAMITE"];
     $FOLIOS=$expediente["FOLIOS"];
     $AREA=$expediente["AREA"];
+    $DOCUMENTATION=$expediente["DOCUMENTACION"];
+    $FILE=$expediente["ARCHIVO"];
 
     //Busca el nombre del tramite, ya que solo se obtiene el id 
     $sql="SELECT NOMBRE FROM TRAMITES WHERE ID=?";
@@ -26,7 +28,7 @@ while($expediente=$resultado->fetch(PDO::FETCH_ASSOC)){
 //Contando el numero de registros afectados por la consulta, lo cual significa que el expediente existe
 $numeros_expediente=$resultado->rowCount();
 if($numeros_expediente==1){
-    $consulta_gestion_expediente="SELECT *FROM ESTADO_EXPEDIENTES WHERE NUMERO_ID=?";
+    $consulta_gestion_expediente="SELECT FECHA_HORA,AREA,MOTIVO,FOLIOS,ESTADO,CON_PASE_A,MOTIVO_PASE,ARCHIVO FROM ESTADO_EXPEDIENTES WHERE NUMERO_ID=?";
     
     $resultado_gestion=$conexion->prepare($consulta_gestion_expediente);
     $resultado_gestion->execute(array($number));

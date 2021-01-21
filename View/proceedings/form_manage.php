@@ -4,7 +4,7 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_search_area.php');
 ?>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
         <table class="table container col-lg-8 offset-lg-3">
             <td class="display-6 text-warning font-weight-bold" style="font-size: 30px;">DATOS DEL EXPEDIENTE</td>
 
@@ -12,6 +12,14 @@ require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_s
                 <td class="display-6 text-muted">N° Expediente:
                     <select name="number" id="number"class="form-control col-lg-8">
                         <option name="number=<?php echo $number;?>"><?php echo $number;?></option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="display-6 text-muted">Año Expediente:
+                    <select name="year" id="year"class="form-control col-lg-8">
+                        <option name="year=<?php echo $year;?>"><?php echo $year;?></option>
                     </select>
                 </td>
             </tr>
@@ -118,7 +126,15 @@ require($_SERVER['DOCUMENT_ROOT'] . '/SISTEMA EXPEDIENTES/Controller/user/user_s
             <tr>
                 <td class="display-6 text-muted">Folios actuales:
                     <input class="form-control col-lg-8" type="number" name="folios" id="folios" pattern="[0-9]{3}" min="1" max="999" placeholder="Numero de folios actuales" title="Se permiten solo tres dígitos" required value="<?php echo $folios_current; ?>"></td>
-                </tr>
+            </tr>
+
+            
+            <tr>
+                <td class="display-6 text-muted">Documentacíon digital:
+                    <input type="file" name="file" id="" class="form-control-file col-lg-8" required>
+                
+                </td>
+            </tr>
 
             <tr>
                 <td class="display-6 text-muted">Area a la que deriva el trámite:

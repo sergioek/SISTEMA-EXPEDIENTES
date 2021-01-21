@@ -1,6 +1,6 @@
 
  <!--formulario para completar el inicio del expediente----------------------------------------------->
- <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+ <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
         <table class="table container col-lg-8 offset-lg-3">
             <td class="display-6 text-muted font-weight-bold">DATOS DEL SOLICITANTE:</td>
             <tr>
@@ -21,10 +21,6 @@
                 </td>
             </tr>
 
-            <td class="display-6 text-muted">Fecha de inicio del trámite:</td>
-            <tr>
-                <td><input class="form-control col-lg-8" type="date" name="date" id="date" min="2020-01-01" max="2100-01-01" required  value="<?php $fechaActual = date('Y-m-d'); echo $fechaActual;?>" disabled></td>
-            </tr>
             <tr> 
                 <td>
                     <select name="estado" id="estado" class="form-control col-lg-8" required>
@@ -41,12 +37,36 @@
                 </td>
             </tr>
 
+            
+            <td class="display-6 text-muted">Fecha de inicio del trámite:</td>
+            <?php $date_value=date('Y-m-d'); $year_value=date('Y');?>
+            <tr>
+                <td><input class="form-control col-lg-8" type="date" name="date" id="date" max="<?php echo $date_value;?>" required></td>
+            </tr>
+
+            <td class="display-6 text-muted">Número de Expediente:</td>
+            <tr>
+                <td><input class="form-control col-lg-8" type="number" name="number_proceedings" id="number" required placeholder="Ingrese el número de expediente" title="Ingresar el número de expediente"></td>
+            </tr>
+
+            <td class="display-6 text-muted">Año de Expediente:</td>
+            <tr>
+                <td><input class="form-control col-lg-8" type="number" name="year_proceedings" id="number" max="<?php echo $year_value;?>" required placeholder="Ingrese el año de expediente" title="Ingresar el año de expediente"></td>
+            </tr>
+
             <tr>
                 <td><input class="form-control col-lg-8" type="number" name="folios" id="folios" pattern="[0-9]{3}" min="1" max="999" placeholder="Numero de folios" title="Se permiten solo tres dígitos" required></td>
             </tr>
 
             <tr>
-                <td>  <textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="300" required style="resize: none;"><?php echo $requeriments;?></textarea></td>
+                <td><textarea class="form-control col-lg-8" name="documentacion" id="documentacion" cols="30" rows="5" placeholder="Documentacíon presentada" maxlength="300" required style="resize: none;"><?php echo $requeriments;?></textarea></td>
+            </tr>
+
+            <tr>
+                <td class="display-6 text-muted">Documentacíon digital:
+                    <input type="file" name="file" id="" class="form-control-file col-lg-8" required>
+                
+                </td>
             </tr>
 
             <tr>

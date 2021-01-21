@@ -33,11 +33,17 @@
 
         <label for=""class="container row text-dark font-weight-bold">Solicitante:<label class="text-primary"><?php echo $PETITIONER;?></label></label>
 
-        <label for=""class="container row text-dark font-weight-bold">Trámite:<label class="text-primary"><?php echo $PROCEDURE;?></label></label>
+        <label for=""class="container row text-dark font-weight-bold">Trámite:<label class="text-primary"><?php echo $PROCEDURE;?></label></label>  
+        
+        <label for=""class="container row text-dark  font-weight-bold">Área de Inicio:<label class="text-primary"><?php echo $AREA;?></label></label>
 
         <label for=""class="container row text-dark font-weight-bold">Folios Iniciales:<label class="text-primary"><?php echo $FOLIOS;?></label></label>
 
-        <label for=""class="container row text-dark  font-weight-bold">Área de Inicio:<label class="text-primary"><?php echo $AREA;?></label></label>
+        <label for=""class="container row text-dark font-weight-bold">Documentacíon presentada:<label class="text-primary"><?php echo $DOCUMENTATION;?></label></label>
+
+       <a  href="/SISTEMA EXPEDIENTES/FILES_UPLOADS/<?php echo $number.'-'.$YEAR.'/'. $FILE;?>" target="blank">
+        <input type="button" class="btn btn-primary" value="Ver expediente digital"></a>
+        
     </div>
 
     <table class="table table-bordered table-responsive-lg">
@@ -69,6 +75,10 @@
 
         <th>
             Motivo del pase
+        </th>
+
+        <th>
+            Archivo
         </th>
     </tr>
     </thead>
@@ -117,11 +127,17 @@
 
         </td>
 
+        <td>
+        
+            <a  href="/SISTEMA EXPEDIENTES/FILES_UPLOADS/<?php echo $number.'-'.$YEAR.'/'. $gestiones->ARCHIVO;?>" target="blank">
+            <input type="button" class="btn btn-danger" value="Ver"></a>
+        </td>
+
     </tr>
     <?php endforeach;?>
 
 <!-----Boton imprimir ------->
-        <input class="btn btn-success col-lg-2 offset-lg-3 mb-lg-4" type="button" value="Imprimir" onclick="javascript:window.print()"/>
+        <input class="btn btn-success col-lg-2 offset-lg-3 mb-lg-4" type="button" value="Imprimir reporte" onclick="javascript:window.print()"/>
     
     </table>
 

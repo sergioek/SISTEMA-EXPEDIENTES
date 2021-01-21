@@ -5,12 +5,13 @@ $conexion=Conexion::Conect();
 
 //Tomar el valor de expediente en el archivo de origen search proceedings del controller (number y year)
     
-$consulta="SELECT NUMERO,FECHA,DNI_SOLICITANTE,TRAMITE,FOLIOS,DOCUMENTACION,AREA FROM EXPEDIENTES WHERE NUMERO=? AND AÑO=?";
+$consulta="SELECT NUMERO,AÑO,FECHA,DNI_SOLICITANTE,TRAMITE,FOLIOS,DOCUMENTACION,AREA FROM EXPEDIENTES WHERE NUMERO=? AND AÑO=?";
 
 $resultado=$conexion->prepare($consulta);
 $resultado->execute(array($number_proceedings,$year));
 while($expedientes=$resultado->fetch(PDO::FETCH_ASSOC)){
     $number=$expedientes["NUMERO"];
+    $year=$expedientes["AÑO"];
     $date=$expedientes["FECHA"];
     $dni_petitioner=$expedientes["DNI_SOLICITANTE"];
     $procedure_id=$expedientes["TRAMITE"];

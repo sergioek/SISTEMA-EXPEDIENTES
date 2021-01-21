@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-01-2021 a las 03:11:29
+-- Tiempo de generación: 21-01-2021 a las 01:13:35
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -91,7 +91,8 @@ CREATE TABLE `estado_expedientes` (
   `FOLIOS` int(3) NOT NULL,
   `ESTADO` int(2) NOT NULL,
   `CON_PASE_A` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `MOTIVO_PASE` varchar(150) COLLATE utf8_spanish_ci NOT NULL
+  `MOTIVO_PASE` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
+  `ARCHIVO` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -109,6 +110,7 @@ CREATE TABLE `expedientes` (
   `ESTADO` int(2) NOT NULL,
   `FOLIOS` int(3) NOT NULL,
   `DOCUMENTACION` text COLLATE utf8_spanish_ci NOT NULL,
+  `ARCHIVO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `AREA` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `DNI_OPERADOR` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -268,12 +270,6 @@ ALTER TABLE `area`
 --
 ALTER TABLE `estados_tramites`
   MODIFY `ID_ESTADO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `expedientes`
---
-ALTER TABLE `expedientes`
-  MODIFY `NUMERO` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles_operadores`

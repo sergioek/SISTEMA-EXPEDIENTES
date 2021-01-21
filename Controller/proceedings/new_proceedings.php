@@ -5,8 +5,8 @@ class Validation{
         
         if(isset($_POST["registrar"])){
             //Obteniendo valores del formulario o creando variables
-            //$number= sera un valor autoincrementable
-            $year=date('Y');
+            $number_id=$_POST["number_proceedings"];
+            $year=$_POST["year_proceedings"];
             $dni_user=$_SESSION["dni"];
             $area=$_SESSION["area"];
             //Obteniendo fecha
@@ -21,10 +21,24 @@ class Validation{
             $documentation=$_POST["documentacion"];
             //Nombre del usuario servira luego para el pdf, no para la bd
             $name_user=$_SESSION["user"];
-            
-            
+            //Recibiendo archivo PDF y determinando sus atributos
+            $file_name=$_FILES["file"]['name'];
+            $file_type=$_FILES["file"]['type'];
+            $file_size=$_FILES["file"]['size'];
+        
+         
 
             //Iniciando comprobaciones
+
+            
+            switch($number_id){
+                case(!filter_var($number_id,FILTER_VALIDATE_INT)):
+                    $v0=FALSE;
+                break;
+                default:
+                $v0=TRUE;
+                }
+
             switch($dni_user){
                 case(!filter_var($dni_user,FILTER_VALIDATE_INT)):
                    $v1=FALSE;
@@ -119,24 +133,55 @@ class Validation{
                 default:
                 $v10=TRUE;
                 }
+            //Verificando el formato
+            switch($file_type){
+                case($file_type!=="application/pdf"):
+                    $v11=FALSE;
+                break;
+                default:
+                $v11=TRUE;
+                }
 
+            //Verificando el tamaño en bytes
+            switch($file_size){
+                case($file_size>10485760):
+                    $v12=FALSE;
+                break;
+                default:
+                $v12=TRUE;
+                }
+
+            //Verificando el nombre
+            switch($file_name){
+                case(strlen($file_name>10)):
+                    $v13=FALSE;
+                break;
+                default:
+                $v13=TRUE;
+                }
+
+         
 //Si todas las validaciones son verdaderas se incorpora el archivo para hacer la insercion            
-    if($v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8  && $v9 && $v10==TRUE){
+    if($v0 && $v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8  && $v9 && $v10 && $v11 && $v12 && $v13==TRUE){
+       
 
         try{
              require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/insert_proceedings.php");
             //Llamando a los archivos para crear pdf.. el insert_proceedings retorna el number_id QUE PERMITE SABER QUE SE HA REALIZADO LA INSERCION DE UN NUEVO REGISTRO Y DETERMINAR SU ID
+        
             if(isset($number_id)){
                 //Buscando el Nombre del tramite por el id, para crear la caratula
-                require_once($_SERVER["DOCUMENT_ROOT"] . "/SISTEMA EXPEDIENTES/Controller/reportPDF/create_caratula.php");
+                require_once($_SERVER["DOCUMENT_ROOT"] . "/SISTEMA EXPEDIENTES/Controller/reportPDF/create_caratula.php"); return'<script language="javascript">alert("Se registro un expediente");</script>';
                 } 
+               
         
          }catch(Exception $e){
-             echo'<script language="javascript">alert("Error al registrar el expediente");</script>';
-            echo "El error es" . $e->getLine();}
+             echo'<script language="javascript">alert("Error al registrar el expediente.Ya existe un expediente con ese número en la base de datos");</script>';
+            }
 
     }else{
-        echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato);</script>';}
+        echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato de los datos y el tamaño de los archivos cargados.");</script>';
+    }
     
 }
 
@@ -145,4 +190,3 @@ class Validation{
 
 $call=new Validation;
 ?>
-

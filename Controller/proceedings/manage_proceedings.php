@@ -17,6 +17,11 @@ class Validation{
             $folios=$_POST["folios"];
             $go_to_area=$_POST["area"];
             $reason_pass=$_POST["motivo_pase"];
+            $year=$_POST["year"];
+            //Recibiendo archivo PDF y determinando sus atributos
+            $file_name=$_FILES["file"]['name'];
+            $file_type=$_FILES["file"]['type'];
+            $file_size=$_FILES["file"]['size'];
 
             //Iniciando comprobaciones
             switch($number_id){
@@ -100,8 +105,43 @@ class Validation{
                     $v8=TRUE;
                     }
 
+            //Verificando el formato
+                 switch($file_type){
+                    case($file_type!=="application/pdf"):
+                        $v9=FALSE;
+                    break;
+                    default:
+                    $v9=TRUE;
+                    }
+
+            //Verificando el tamaño en bytes
+                switch($file_size){
+                    case($file_size>3000000):
+                        $v10=FALSE;
+                    break;
+                    default:
+                    $v10=TRUE;
+                    }
+
+            //Verificando el tamaño en bytes
+                switch($file_name){
+                    case(strlen($file_name>10)):
+                        $v11=FALSE;
+                    break;
+                    default:
+                    $v11=TRUE;
+                    }
+                switch($year){
+                    case(!filter_var($year,FILTER_VALIDATE_INT)):
+                        $v12=FALSE;
+                    break;
+                    default:
+                    $v12=TRUE;
+                    }
+        
+
 //Si todas las validaciones son verdaderas se incorpora el archivo para hacer la insercion            
-            if($v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8==TRUE){
+            if($v1 && $v2 && $v3&& $v4 && $v5 && $v6  && $v7  && $v8 && $v9 && $v10 && $v11 && $v12==TRUE){
 
                 try{
                 require_once($_SERVER['DOCUMENT_ROOT']."/SISTEMA EXPEDIENTES/Model/proceedings/insert_manage_proceedings.php");
@@ -109,7 +149,7 @@ class Validation{
                 }catch(Exception $e){
                     echo'<script language="javascript">alert("Error al gestionar el expediente");</script>';}
             }else{
-                echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato");</script>';}
+                echo'<script language="javascript">alert("Error en los datos ingresados. Verifique el formato de los datos y el archivo");</script>';}
             
             }    
         }
